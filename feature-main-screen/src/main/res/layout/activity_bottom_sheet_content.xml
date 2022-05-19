@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/textRocketName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="20dp"
+        android:text="Falcon Heavy"
+        android:textColor="#F8F8F8"
+        android:textSize="34sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="40dp"
+        android:background="@null"
+        android:contentDescription="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_baseline_settings_24"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="105dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="40dp"
+        android:orientation="horizontal"
+        android:scrollbars="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textRocketName">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imageHeight"
+                android:layout_width="95dp"
+                android:layout_height="95dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/rounded_elem" />
+
+            <TextView
+                android:id="@+id/textHeightVal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:text="229,6"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/imageHeight"
+                app:layout_constraintStart_toStartOf="@+id/imageHeight"
+                app:layout_constraintTop_toTopOf="@+id/imageHeight" />
+
+            <TextView
+                android:id="@+id/textHeight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="15dp"
+                android:text="Высота, ft"
+                android:textColor="#B8B6B6"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageHeight"
+                app:layout_constraintEnd_toEndOf="@+id/imageHeight"
+                app:layout_constraintStart_toStartOf="@+id/imageHeight"
+                app:layout_constraintTop_toBottomOf="@+id/textHeightVal" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp">
+
+            <ImageView
+                android:id="@+id/imageDiameter"
+                android:layout_width="95dp"
+                android:layout_height="95dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/rounded_elem" />
+
+            <TextView
+                android:id="@+id/textDiameterVal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:text="229,6"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/imageDiameter"
+                app:layout_constraintStart_toStartOf="@+id/imageDiameter"
+                app:layout_constraintTop_toTopOf="@+id/imageDiameter" />
+
+            <TextView
+                android:id="@+id/textDiameter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="15dp"
+                android:text="Диаметр, lt"
+                android:textColor="#B8B6B6"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageDiameter"
+                app:layout_constraintEnd_toEndOf="@+id/imageDiameter"
+                app:layout_constraintStart_toStartOf="@+id/imageDiameter"
+                app:layout_constraintTop_toBottomOf="@+id/textDiameterVal" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp">
+
+            <ImageView
+                android:id="@+id/imageWeight"
+                android:layout_width="95dp"
+                android:layout_height="95dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/rounded_elem" />
+
+            <TextView
+                android:id="@+id/textWeightVal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:text="229,6"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/imageWeight"
+                app:layout_constraintStart_toStartOf="@+id/imageWeight"
+                app:layout_constraintTop_toTopOf="@+id/imageWeight" />
+
+            <TextView
+                android:id="@+id/textWeight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="15dp"
+                android:text="Масса, ft"
+                android:textColor="#B8B6B6"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageWeight"
+                app:layout_constraintEnd_toEndOf="@+id/imageWeight"
+                app:layout_constraintStart_toStartOf="@+id/imageWeight"
+                app:layout_constraintTop_toBottomOf="@+id/textWeightVal" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp">
+
+            <ImageView
+                android:id="@+id/imagePayload"
+                android:layout_width="95dp"
+                android:layout_height="95dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/rounded_elem" />
+
+            <TextView
+                android:id="@+id/textPayloadVal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:text="229,6"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/imagePayload"
+                app:layout_constraintStart_toStartOf="@+id/imagePayload"
+                app:layout_constraintTop_toTopOf="@+id/imagePayload" />
+
+            <TextView
+                android:id="@+id/textPayload"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="15dp"
+                android:text="Нагрузка, leo"
+                android:textColor="#B8B6B6"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toBottomOf="@+id/imagePayload"
+                app:layout_constraintEnd_toEndOf="@+id/imagePayload"
+                app:layout_constraintStart_toStartOf="@+id/imagePayload"
+                app:layout_constraintTop_toBottomOf="@+id/textPayloadVal" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textFirstFlight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="40dp"
+        android:text="Первый запуск"
+        android:textColor="#CFCECE"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <TextView
+        android:id="@+id/textFirstFlightVal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="40dp"
+        android:text="7 февраля, 2018"
+        android:textColor="#CFCECE"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <TextView
+        android:id="@+id/textCountry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="20dp"
+        android:text="Страна"
+        android:textColor="#CFCECE"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textFirstFlight" />
+
+    <TextView
+        android:id="@+id/textCountryVal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="40dp"
+        android:text="США"
+        android:textColor="#CFCECE"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textFirstFlightVal" />
+
+    <TextView
+        android:id="@+id/textCostPerLaunch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="20dp"
+        android:text="Стоимость запуска"
+        android:textColor="#CFCECE"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textCountry" />
+
+    <TextView
+        android:id="@+id/textCostPerLaunchVal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="40dp"
+        android:text="$90 млн"
+        android:textColor="#CFCECE"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textCountryVal" />
+
+    <TextView
+        android:id="@+id/textFirstStage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="28dp"
+        android:text="Первая ступень"
+        android:textColor="#F8F8F8"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textCostPerLaunch" />
+
+    <include
+        android:id="@+id/includeFirstStage"
+        layout="@layout/stage_info_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textFirstStage" />
+
+    <TextView
+        android:id="@+id/textSecondStage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="28dp"
+        android:text="Вторая ступень"
+        android:textColor="#F8F8F8"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/includeFirstStage" />
+
+    <include
+        android:id="@+id/includeSecondStage"
+        layout="@layout/stage_info_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textSecondStage" />
+
+    <Button
+        android:id="@+id/buttonViewLaunch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/rounded_elem"
+        android:text="Посмотреть запуски"
+        android:textAlignment="center"
+        android:textColor="#E4E4E4"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/includeSecondStage" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
