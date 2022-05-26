@@ -1,17 +1,23 @@
-package com.example.feature_main_screen
+package com.example.feature_main_screen.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.constraintlayout.widget.ConstraintLayout
+import com.example.feature_main_screen.R
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.example.feature_main_screen.domain.usecase.GetDataUseCase
 import com.example.feature_main_screen.domain.models.RocketInfo
 import com.example.feature_main_screen.databinding.ActivityMainScreenBinding
+import com.example.feature_main_screen.data.RocketRepoImpl
 
 class StartMainScreen : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainScreenBinding
-    private val getDataUseCase = GetDataUseCase()
+
+    private val rocketRepo by lazy { RocketRepoImpl(applicationContext) }
+    private val getDataUseCase by lazy { GetDataUseCase(rocketRepo) }
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,6 +25,8 @@ class StartMainScreen : AppCompatActivity() {
 
         binding = ActivityMainScreenBinding.inflate(layoutInflater)
         val view = binding.root
+
+
 
         setContentView(view)
         createBottomSheet()
@@ -34,6 +42,7 @@ class StartMainScreen : AppCompatActivity() {
     }
     private fun getData() {
         val rocketData: RocketInfo = getDataUseCase.execute()
+        println("This is $rocketData")
         binding.bottomSheetInclude.textRocketName.text = rocketData.rocketName
         binding.bottomSheetInclude.textHeightVal.text = rocketData.height.toString()
         binding.bottomSheetInclude.textDiameterVal.text = rocketData.diameter.toString()

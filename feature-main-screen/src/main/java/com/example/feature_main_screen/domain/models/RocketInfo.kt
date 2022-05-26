@@ -11,7 +11,7 @@ class RocketInfo(
 
     val firstFlight: Long,
     val country: String,
-    val costPerLaunch: BigDecimal,
+    val costPerLaunch: Int,
 
     val firstStageInfo: StageInfo,
     val secondStageInfo: StageInfo
