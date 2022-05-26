@@ -3,6 +3,9 @@ package com.example.feature_main_screen.presentation
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import com.example.feature_main_screen.R
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.example.feature_main_screen.domain.usecase.GetDataUseCase
@@ -16,6 +19,7 @@ class StartMainScreen : AppCompatActivity() {
 
     private val rocketRepo by lazy { RocketRepoImpl(applicationContext) }
     private val getDataUseCase by lazy { GetDataUseCase(rocketRepo) }
+    private lateinit var vm:MainScreenViewModel
 
 
 
@@ -26,10 +30,27 @@ class StartMainScreen : AppCompatActivity() {
         binding = ActivityMainScreenBinding.inflate(layoutInflater)
         val view = binding.root
 
-
+        vm = ViewModelProvider(this, MainScreenViewModelFactory(this)).get(MainScreenViewModel::class.java)
 
         setContentView(view)
         createBottomSheet()
+
+        vm.dataRocketPackLive.observe(this, Observer { binding.bottomSheetInclude.textRocketName.text = it.rocketName
+            binding.bottomSheetInclude.textHeightVal.text = it.height.toString()
+            binding.bottomSheetInclude.textDiameterVal.text = it.diameter.toString()
+            binding.bottomSheetInclude.textWeightVal.text = it.weight.toString()
+            binding.bottomSheetInclude.textPayloadVal.text = it.payload.toString()
+            binding.bottomSheetInclude.textFirstFlightVal.text = it.firstFlight.toString()
+            binding.bottomSheetInclude.textCountryVal.text = it.country
+            binding.bottomSheetInclude.textCostPerLaunchVal.text = it.costPerLaunch.toString()
+            binding.bottomSheetInclude.includeFirstStage.textEnginesVal.text = it.firstStageInfo.engines.toString()
+            binding.bottomSheetInclude.includeFirstStage.textFuelAmountTonsVal.text = it.firstStageInfo.fuelAmountTons.toString()
+            binding.bottomSheetInclude.includeFirstStage.textBurnTimeSecVal.text = it.firstStageInfo.burnTimeSec.toString()
+
+            binding.bottomSheetInclude.includeSecondStage.textEnginesVal.text = it.secondStageInfo.engines.toString()
+            binding.bottomSheetInclude.includeSecondStage.textFuelAmountTonsVal.text = it.secondStageInfo.fuelAmountTons.toString()
+            binding.bottomSheetInclude.includeSecondStage.textBurnTimeSecVal.text = it.secondStageInfo.burnTimeSec.toString() })
+
         getData()
     }
 
@@ -40,23 +61,8 @@ class StartMainScreen : AppCompatActivity() {
                 this.state = BottomSheetBehavior.STATE_COLLAPSED
             }
     }
-    private fun getData() {
-        val rocketData: RocketInfo = getDataUseCase.execute()
-        println("This is $rocketData")
-        binding.bottomSheetInclude.textRocketName.text = rocketData.rocketName
-        binding.bottomSheetInclude.textHeightVal.text = rocketData.height.toString()
-        binding.bottomSheetInclude.textDiameterVal.text = rocketData.diameter.toString()
-        binding.bottomSheetInclude.textWeightVal.text = rocketData.weight.toString()
-        binding.bottomSheetInclude.textPayloadVal.text = rocketData.payload.toString()
-        binding.bottomSheetInclude.textFirstFlightVal.text = rocketData.firstFlight.toString()
-        binding.bottomSheetInclude.textCountryVal.text = rocketData.country
-        binding.bottomSheetInclude.textCostPerLaunchVal.text = rocketData.costPerLaunch.toString()
-        binding.bottomSheetInclude.includeFirstStage.textEnginesVal.text = rocketData.firstStageInfo.engines.toString()
-        binding.bottomSheetInclude.includeFirstStage.textFuelAmountTonsVal.text = rocketData.firstStageInfo.fuelAmountTons.toString()
-        binding.bottomSheetInclude.includeFirstStage.textBurnTimeSecVal.text = rocketData.firstStageInfo.burnTimeSec.toString()
 
-        binding.bottomSheetInclude.includeSecondStage.textEnginesVal.text = rocketData.secondStageInfo.engines.toString()
-        binding.bottomSheetInclude.includeSecondStage.textFuelAmountTonsVal.text = rocketData.secondStageInfo.fuelAmountTons.toString()
-        binding.bottomSheetInclude.includeSecondStage.textBurnTimeSecVal.text = rocketData.secondStageInfo.burnTimeSec.toString()
+    private fun getData() {
+        vm.getData()
     }
 }
