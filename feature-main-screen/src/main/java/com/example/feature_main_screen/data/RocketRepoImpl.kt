@@ -15,7 +15,6 @@ class RocketRepoImpl(private val context: Context) : RocketRepo {
 
     override fun getRocket(): RocketInfo {
 
-
         val firstStage = StageInfo(engines = 1, fuelAmountTons = 1.0, burnTimeSec = 1)
         val secondStage = StageInfo(engines = 1, fuelAmountTons = 1.0, burnTimeSec = 1)
         return RocketInfo(rocketName = "", height = 1.0 , diameter = 1.0, weight = 1, payload = 1, firstFlight = 2, country = "", costPerLaunch = 1, firstStageInfo = firstStage, secondStageInfo = secondStage )

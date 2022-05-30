@@ -1,17 +1,20 @@
 package com.example.feature_main_screen.presentation
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.feature_main_screen.R
-import com.google.android.material.bottomsheet.BottomSheetBehavior
-import com.example.feature_main_screen.domain.usecase.GetDataUseCase
-import com.example.feature_main_screen.domain.models.RocketInfo
-import com.example.feature_main_screen.databinding.ActivityMainScreenBinding
+import com.example.feature_main_screen.data.Rocket
 import com.example.feature_main_screen.data.RocketRepoImpl
+import com.example.feature_main_screen.databinding.ActivityMainScreenBinding
+import com.example.feature_main_screen.domain.usecase.GetDataUseCase
+import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
+import java.lang.reflect.Type
+
 
 class StartMainScreen : AppCompatActivity() {
 
@@ -35,7 +38,8 @@ class StartMainScreen : AppCompatActivity() {
         setContentView(view)
         createBottomSheet()
 
-        vm.dataRocketPackLive.observe(this, Observer { binding.bottomSheetInclude.textRocketName.text = it.rocketName
+        vm.dataRocketPackLive.observe(this, Observer {
+            binding.bottomSheetInclude.textRocketName.text = it.rocketName
             binding.bottomSheetInclude.textHeightVal.text = it.height.toString()
             binding.bottomSheetInclude.textDiameterVal.text = it.diameter.toString()
             binding.bottomSheetInclude.textWeightVal.text = it.weight.toString()
@@ -49,9 +53,11 @@ class StartMainScreen : AppCompatActivity() {
 
             binding.bottomSheetInclude.includeSecondStage.textEnginesVal.text = it.secondStageInfo.engines.toString()
             binding.bottomSheetInclude.includeSecondStage.textFuelAmountTonsVal.text = it.secondStageInfo.fuelAmountTons.toString()
-            binding.bottomSheetInclude.includeSecondStage.textBurnTimeSecVal.text = it.secondStageInfo.burnTimeSec.toString() })
+            binding.bottomSheetInclude.includeSecondStage.textBurnTimeSecVal.text = it.secondStageInfo.burnTimeSec.toString()
+        })
 
         getData()
+        parser()
     }
 
     private fun createBottomSheet() {
@@ -64,5 +70,20 @@ class StartMainScreen : AppCompatActivity() {
 
     private fun getData() {
         vm.getData()
+    }
+
+    private fun parser() {
+
+        val json: String = applicationContext.assets.open("rockets.json").bufferedReader().use {
+                    it.readText()
+                }
+        println("READ FILE COMPLETE")
+
+        //val rocket = Gson().fromJson(json, Rocket::class.java) //Single
+        val collectionType: Type = object : TypeToken<Collection<Rocket?>?>() {}.type
+        val rocketsCollection: Collection<Rocket> = Gson().fromJson(json, collectionType)
+
+        println("PARSE COMPLETE")
+        println(rocketsCollection)
     }
 }
