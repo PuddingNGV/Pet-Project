@@ -1,9 +1,9 @@
-package com.example.feature_main_screen.data.responce
+package com.example.feature_main_screen.data.responce.item.stage.second
 
 
 import com.google.gson.annotations.SerializedName
 
-data class ThrustVacuumX(
+data class Thrust(
     @SerializedName("kN")
     val kN: Int,
     @SerializedName("lbf")

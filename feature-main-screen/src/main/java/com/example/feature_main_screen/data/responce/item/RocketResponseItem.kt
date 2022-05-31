@@ -1,6 +1,9 @@
-package com.example.feature_main_screen.data.responce
+package com.example.feature_main_screen.data.responce.item
 
 
+import com.example.feature_main_screen.data.responce.item.engines.Engines
+import com.example.feature_main_screen.data.responce.item.stage.first.FirstStage
+import com.example.feature_main_screen.data.responce.item.stage.second.SecondStage
 import com.google.gson.annotations.SerializedName
 
 data class RocketResponseItem(

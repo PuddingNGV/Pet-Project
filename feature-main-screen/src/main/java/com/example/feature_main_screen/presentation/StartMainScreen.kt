@@ -6,14 +6,13 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.feature_main_screen.R
-import com.example.feature_main_screen.data.Rocket
 import com.example.feature_main_screen.data.RocketRepoImpl
 import com.example.feature_main_screen.databinding.ActivityMainScreenBinding
 import com.example.feature_main_screen.domain.usecase.GetDataUseCase
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
-import java.lang.reflect.Type
+import com.example.feature_main_screen.data.responce.RocketResponse
+
 
 
 class StartMainScreen : AppCompatActivity() {
@@ -79,11 +78,11 @@ class StartMainScreen : AppCompatActivity() {
                 }
         println("READ FILE COMPLETE")
 
-        //val rocket = Gson().fromJson(json, Rocket::class.java) //Single
-        val collectionType: Type = object : TypeToken<Collection<Rocket?>?>() {}.type
-        val rocketsCollection: Collection<Rocket> = Gson().fromJson(json, collectionType)
+        val rocket = Gson().fromJson(json, RocketResponse::class.java) //Single
+        //val collectionType: Type = object : TypeToken<Collection<Rocket?>?>() {}.type
+        //val rocketsCollection: Collection<Rocket> = Gson().fromJson(json, collectionType)
 
         println("PARSE COMPLETE")
-        println(rocketsCollection)
+        println(rocket[1])
     }
 }

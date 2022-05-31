@@ -1,6 +1,6 @@
 package com.example.feature_main_screen.data.responce
 
 
-import com.google.gson.annotations.SerializedName
+import com.example.feature_main_screen.data.responce.item.RocketResponseItem
 
 class RocketResponse : ArrayList<RocketResponseItem>()

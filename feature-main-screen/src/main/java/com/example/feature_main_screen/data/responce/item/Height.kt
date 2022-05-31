@@ -1,9 +1,9 @@
-package com.example.feature_main_screen.data.responce
+package com.example.feature_main_screen.data.responce.item
 
 
 import com.google.gson.annotations.SerializedName
 
-data class Diameter(
+data class Height(
     @SerializedName("feet")
     val feet: Double,
     @SerializedName("meters")

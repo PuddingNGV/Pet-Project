@@ -1,4 +1,4 @@
-package com.example.feature_main_screen.data.responce
+package com.example.feature_main_screen.data.responce.item
 
 
 import com.google.gson.annotations.SerializedName
