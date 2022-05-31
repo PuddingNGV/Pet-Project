@@ -1,5 +1,8 @@
 package com.example.feature_main_screen.data
 
+import com.example.feature_main_screen.data.responce.Diameter
+import com.example.feature_main_screen.data.responce.Height
+import com.example.feature_main_screen.data.responce.Mass
 import com.google.gson.annotations.SerializedName
 
 data class Rocket(
