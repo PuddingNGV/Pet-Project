@@ -1,10 +1,19 @@
 package com.example.feature_main_screen.data.responce
 
+
+import com.google.gson.annotations.SerializedName
+
 data class SecondStage(
-    val burn_time_sec: Any,
+    @SerializedName("burn_time_sec")
+    val burnTimeSec: Any?,
+    @SerializedName("engines")
     val engines: Int,
-    val fuel_amount_tons: Int,
+    @SerializedName("fuel_amount_tons")
+    val fuelAmountTons: Double,
+    @SerializedName("payloads")
     val payloads: Payloads,
+    @SerializedName("reusable")
     val reusable: Boolean,
+    @SerializedName("thrust")
     val thrust: Thrust
 )

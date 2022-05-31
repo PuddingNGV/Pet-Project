@@ -1,6 +1,11 @@
 package com.example.feature_main_screen.data.responce
 
+
+import com.google.gson.annotations.SerializedName
+
 data class Payloads(
-    val composite_fairing: CompositeFairing,
-    val option_1: String
+    @SerializedName("composite_fairing")
+    val compositeFairing: CompositeFairing,
+    @SerializedName("option_1")
+    val option1: String
 )

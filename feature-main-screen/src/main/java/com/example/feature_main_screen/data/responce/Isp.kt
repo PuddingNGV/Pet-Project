@@ -1,6 +1,11 @@
 package com.example.feature_main_screen.data.responce
 
+
+import com.google.gson.annotations.SerializedName
+
 data class Isp(
-    val sea_level: Int,
+    @SerializedName("sea_level")
+    val seaLevel: Int,
+    @SerializedName("vacuum")
     val vacuum: Int
 )

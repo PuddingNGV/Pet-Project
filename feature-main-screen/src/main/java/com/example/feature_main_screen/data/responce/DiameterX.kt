@@ -1,6 +1,11 @@
 package com.example.feature_main_screen.data.responce
 
+
+import com.google.gson.annotations.SerializedName
+
 data class DiameterX(
-    val feet: Any,
-    val meters: Any
+    @SerializedName("feet")
+    val feet: Any?,
+    @SerializedName("meters")
+    val meters: Any?
 )

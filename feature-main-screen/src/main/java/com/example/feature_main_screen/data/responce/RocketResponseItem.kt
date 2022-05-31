@@ -1,30 +1,51 @@
 package com.example.feature_main_screen.data.responce
 
-import com.example.feature_main_screen.data.Diameter
-import com.example.feature_main_screen.data.Height
-import com.example.feature_main_screen.data.Mass
+
+import com.google.gson.annotations.SerializedName
 
 data class RocketResponseItem(
+    @SerializedName("active")
     val active: Boolean,
+    @SerializedName("boosters")
     val boosters: Int,
+    @SerializedName("company")
     val company: String,
-    val cost_per_launch: Int,
+    @SerializedName("cost_per_launch")
+    val costPerLaunch: Int,
+    @SerializedName("country")
     val country: String,
+    @SerializedName("description")
     val description: String,
+    @SerializedName("diameter")
     val diameter: Diameter,
+    @SerializedName("engines")
     val engines: Engines,
-    val first_flight: String,
-    val first_stage: FirstStage,
-    val flickr_images: List<String>,
+    @SerializedName("first_flight")
+    val firstFlight: String,
+    @SerializedName("first_stage")
+    val firstStage: FirstStage,
+    @SerializedName("flickr_images")
+    val flickrImages: List<String>,
+    @SerializedName("height")
     val height: Height,
+    @SerializedName("id")
     val id: String,
-    val landing_legs: LandingLegs,
+    @SerializedName("landing_legs")
+    val landingLegs: LandingLegs,
+    @SerializedName("mass")
     val mass: Mass,
+    @SerializedName("name")
     val name: String,
-    val payload_weights: List<PayloadWeight>,
-    val second_stage: SecondStage,
+    @SerializedName("payload_weights")
+    val payloadWeights: List<PayloadWeight>,
+    @SerializedName("second_stage")
+    val secondStage: SecondStage,
+    @SerializedName("stages")
     val stages: Int,
-    val success_rate_pct: Int,
+    @SerializedName("success_rate_pct")
+    val successRatePct: Int,
+    @SerializedName("type")
     val type: String,
+    @SerializedName("wikipedia")
     val wikipedia: String
 )
