@@ -1,4 +1,4 @@
-package com.example.feature_main_screen.data.responce.item.stage.second
+package com.example.feature_main_screen.data.remote.responce.item.stage.second
 
 
 import com.google.gson.annotations.SerializedName

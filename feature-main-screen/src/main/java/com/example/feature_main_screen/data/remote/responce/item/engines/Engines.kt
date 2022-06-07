@@ -1,7 +1,7 @@
-package com.example.feature_main_screen.data.responce.item.engines
+package com.example.feature_main_screen.data.remote.responce.item.engines
 
 
-import com.example.feature_main_screen.data.responce.item.Isp
+import com.example.feature_main_screen.data.remote.responce.item.Isp
 import com.google.gson.annotations.SerializedName
 
 data class Engines(

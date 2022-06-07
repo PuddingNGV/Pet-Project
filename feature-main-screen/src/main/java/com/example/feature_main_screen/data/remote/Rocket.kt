@@ -1,10 +1,6 @@
-package com.example.feature_main_screen.data
+package com.example.feature_main_screen.data.remote
 
-import com.example.feature_main_screen.data.responce.Diameter
-import com.example.feature_main_screen.data.responce.Height
-import com.example.feature_main_screen.data.responce.Mass
-import com.google.gson.annotations.SerializedName
-
+/*
 data class Rocket(
 
     @SerializedName("name") val rocketName: String,
@@ -32,3 +28,4 @@ data class StageInfoData(
     @SerializedName("fuel_amount_tons") val fuelAmountTons: Double,
     @SerializedName("burn_time_sec") val burnTimeSec: Int
 )
+*/

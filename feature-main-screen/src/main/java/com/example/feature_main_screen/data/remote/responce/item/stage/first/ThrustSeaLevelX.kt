@@ -1,9 +1,9 @@
-package com.example.feature_main_screen.data.responce.item.engines
+package com.example.feature_main_screen.data.remote.responce.item.stage.first
 
 
 import com.google.gson.annotations.SerializedName
 
-data class ThrustSeaLevel(
+data class ThrustSeaLevelX(
     @SerializedName("kN")
     val kN: Int,
     @SerializedName("lbf")

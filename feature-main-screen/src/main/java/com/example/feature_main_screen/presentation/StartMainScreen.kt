@@ -6,12 +6,12 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.feature_main_screen.R
-import com.example.feature_main_screen.data.RocketRepoImpl
+import com.example.feature_main_screen.data.remote.RocketRepoImpl
 import com.example.feature_main_screen.databinding.ActivityMainScreenBinding
 import com.example.feature_main_screen.domain.usecase.GetDataUseCase
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.gson.Gson
-import com.example.feature_main_screen.data.responce.RocketResponse
+import com.example.feature_main_screen.data.remote.responce.RocketResponse
 
 
 

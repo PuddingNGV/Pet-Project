@@ -1,4 +1,4 @@
-package com.example.feature_main_screen.data
+package com.example.feature_main_screen.data.remote
 
 import android.content.Context
 import com.example.feature_main_screen.domain.models.*

@@ -4,6 +4,7 @@
     package="com.pet_project">
 
     <application
+        android:name="com.example.feature_main_screen.data.remote.RocketApp"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
