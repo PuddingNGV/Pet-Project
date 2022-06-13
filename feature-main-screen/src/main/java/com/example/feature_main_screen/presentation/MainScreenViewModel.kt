@@ -9,7 +9,9 @@ import kotlinx.coroutines.*
 
 class MainScreenViewModel(private val getDataUseCase: GetDataUseCase): ViewModel() {
 
-
+    init {
+        getData()
+    }
 
     private var dataRocketPackMutable = MutableLiveData<RocketInfo>()
     var dataRocketPackLive:LiveData<RocketInfo> = dataRocketPackMutable
@@ -18,9 +20,8 @@ class MainScreenViewModel(private val getDataUseCase: GetDataUseCase): ViewModel
 
     fun getData() {
 
-        viewModelScope.launch {
-            dataRocketPackMutable.value= getDataUseCase.execute()
-            println("${dataRocketPackLive.value} FUCK MEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE")
+        viewModelScope.launch(Dispatchers.Main) {
+            dataRocketPackMutable.value = getDataUseCase.execute()
         }
 
     }

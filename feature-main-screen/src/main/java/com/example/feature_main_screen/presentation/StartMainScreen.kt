@@ -59,8 +59,6 @@ class StartMainScreen : AppCompatActivity() {
             binding.bottomSheetInclude.includeSecondStage.textBurnTimeSecVal.text = it.secondStageInfo.burnTimeSec.toString()
         })
 
-        getData()
-
     }
 
     private fun createBottomSheet() {
