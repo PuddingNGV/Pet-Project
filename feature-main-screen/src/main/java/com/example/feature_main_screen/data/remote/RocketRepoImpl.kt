@@ -6,6 +6,7 @@ import com.example.feature_main_screen.data.remote.responce.item.RocketResponseI
 import com.example.feature_main_screen.domain.models.RocketInfo
 import com.example.feature_main_screen.domain.models.StageInfo
 import com.example.feature_main_screen.domain.repository.RocketRepo
+import kotlinx.coroutines.*
 
 
 private const val SHARED_PREFS_NAME = "shared_prefs"
@@ -20,10 +21,12 @@ class RocketRepoImpl(private val context: Context) : RocketRepo {
 
 
 
-    override fun getRocket(): RocketInfo {
-        val requestScreenId = 0
+    override suspend fun getRocket(): RocketInfo {
+        val requestScreenId = 2
         val requestParam = mapOf("height" to true, "diameter" to true, "mass" to true, "payload" to true)
+
         response = requestApi()
+
         return dataProcessing(response[requestScreenId], requestParam)
     }
 
@@ -34,15 +37,19 @@ class RocketRepoImpl(private val context: Context) : RocketRepo {
         val massParams = param["mass"]
         val payloadParams = param["payload"]
 
+        val firstStageBTS = checkNullRetNum(request.firstStage.burnTimeSec.toString())
+        val secondStageBTS = checkNullRetNum(request.secondStage.burnTimeSec.toString())
+
+
         val firstStage = StageInfo(
             request.firstStage.engines,
             request.firstStage.fuelAmountTons,
-            request.firstStage.burnTimeSec.toString().toDouble()
+            firstStageBTS
         )
         val secondStage = StageInfo(
             request.secondStage.engines,
             request.secondStage.fuelAmountTons,
-            request.secondStage.burnTimeSec.toString().toDouble()
+            secondStageBTS
         )
         val dataRocket = RocketInfo(
             request.name,
@@ -60,8 +67,8 @@ class RocketRepoImpl(private val context: Context) : RocketRepo {
                 else -> request.mass.lb
             },
             when (payloadParams) {
-                true -> request.payloadWeights.kg
-                else -> request.payloadWeights.lb
+                true -> request.payloadWeights[0].kg
+                else -> request.payloadWeights[0].lb
             },
 
             request.firstFlight,
@@ -73,9 +80,20 @@ class RocketRepoImpl(private val context: Context) : RocketRepo {
         return dataRocket
     }
 
-    private fun requestApi(): RocketResponse {
+    private fun checkNullRetNum(string: String): Int {
+        return when (string) {
+            "null" -> 0
+            else -> string.toDouble().toInt()
+        }
+    }
 
-        return initialAPI.getRockets().body()!!
+    private suspend fun requestApi(): RocketResponse {
+
+        val job = GlobalScope.async(Dispatchers.IO) {
+            val answer = initialAPI.getRockets().body()
+            answer.let { return@async answer!! }
+        }
+        return job.await()
     }
 
 /*

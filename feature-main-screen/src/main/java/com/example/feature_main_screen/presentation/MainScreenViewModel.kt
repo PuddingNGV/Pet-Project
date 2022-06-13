@@ -12,7 +12,6 @@ class MainScreenViewModel(private val getDataUseCase: GetDataUseCase): ViewModel
 
 
     private var dataRocketPackMutable = MutableLiveData<RocketInfo>()
-
     var dataRocketPackLive:LiveData<RocketInfo> = dataRocketPackMutable
 
 

@@ -7,7 +7,7 @@ import kotlinx.coroutines.flow.Flow
 
 class GetDataUseCase(private val rocketRepo: RocketRepo) {
 
-    fun execute(): RocketInfo {
+    suspend fun execute(): RocketInfo {
         return rocketRepo.getRocket()
     }
 }

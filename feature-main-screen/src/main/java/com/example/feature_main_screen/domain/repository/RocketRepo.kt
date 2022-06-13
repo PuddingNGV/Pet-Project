@@ -5,6 +5,6 @@ import kotlinx.coroutines.flow.Flow
 
 interface RocketRepo {
 
-    fun getRocket(): RocketInfo
+    suspend fun getRocket(): RocketInfo
     fun saveRocket()
 }
