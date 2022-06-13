@@ -16,14 +16,10 @@ class MainScreenViewModel(private val getDataUseCase: GetDataUseCase): ViewModel
     private var dataRocketPackMutable = MutableLiveData<RocketInfo>()
     var dataRocketPackLive:LiveData<RocketInfo> = dataRocketPackMutable
 
-
-
-    fun getData() {
-
+    private fun getData() {
         viewModelScope.launch(Dispatchers.Main) {
             dataRocketPackMutable.value = getDataUseCase.execute()
         }
-
     }
 
 

@@ -22,7 +22,7 @@ class StartMainScreen : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainScreenBinding
 
-    private val rocketRepo by lazy { RocketRepoImpl(applicationContext) }
+    //private val rocketRepo by lazy { RocketRepoImpl(applicationContext) }
     //private val getDataUseCase by lazy { GetDataUseCase(rocketRepo) }
     private lateinit var vm:MainScreenViewModel
 
@@ -68,20 +68,4 @@ class StartMainScreen : AppCompatActivity() {
                 this.state = BottomSheetBehavior.STATE_COLLAPSED
             }
     }
-
-    private fun getData() {
-        vm.getData()
-    }
-
-    /*
-    private fun parser() {
-        val json: String = applicationContext.assets.open("rockets.json").bufferedReader().use {
-                    it.readText()
-                }
-        val rocket = Gson().fromJson(json, RocketResponse::class.java) //Single
-        //val collectionType: Type = object : TypeToken<Collection<Rocket?>?>() {}.type
-        //val rocketsCollection: Collection<Rocket> = Gson().fromJson(json, collectionType)
-    }
-
-     */
 }
