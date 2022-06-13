@@ -9,7 +9,7 @@ class RocketInfo(
     val weight: Int,
     val payload: Int,
 
-    val firstFlight: Long,
+    val firstFlight: String,
     val country: String,
     val costPerLaunch: Int,
 

@@ -1,6 +1,9 @@
-package com.example.feature_main_screen.data.remote
+package com.example.feature_main_screen.data.remote.responce
 
 /*
+
+//DELETE IF NOT NEEDED
+
 data class Rocket(
 
     @SerializedName("name") val rocketName: String,

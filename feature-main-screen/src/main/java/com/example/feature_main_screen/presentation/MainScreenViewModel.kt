@@ -1,21 +1,34 @@
 package com.example.feature_main_screen.presentation
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+
+import androidx.lifecycle.*
 import com.example.feature_main_screen.domain.models.RocketInfo
 import com.example.feature_main_screen.domain.usecase.GetDataUseCase
+import kotlinx.coroutines.*
+
 
 class MainScreenViewModel(private val getDataUseCase: GetDataUseCase): ViewModel() {
 
 
+
     private var dataRocketPackMutable = MutableLiveData<RocketInfo>()
-    val dataRocketPackLive:LiveData<RocketInfo> = dataRocketPackMutable
+
+    var dataRocketPackLive:LiveData<RocketInfo> = dataRocketPackMutable
+
 
 
     fun getData() {
-        dataRocketPackMutable.value = getDataUseCase.execute()
+
+        viewModelScope.launch {
+            dataRocketPackMutable.value= getDataUseCase.execute()
+            println("${dataRocketPackLive.value} FUCK MEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE")
+        }
+
     }
+
+
+
+
 /*
     fun login(name: String, password: String) {
         runCoroutine(dataRocketPackMutable) {
