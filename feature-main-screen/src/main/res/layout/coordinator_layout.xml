@@ -59,7 +59,7 @@
                 <ImageView
                     android:id="@+id/imageHeight"
                     android:layout_width="95dp"
-                    android:layout_height="95dp"
+                    android:layout_height="80dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/rounded_elem" />
@@ -100,7 +100,7 @@
                 <ImageView
                     android:id="@+id/imageDiameter"
                     android:layout_width="95dp"
-                    android:layout_height="95dp"
+                    android:layout_height="80dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/rounded_elem" />
@@ -141,7 +141,7 @@
                 <ImageView
                     android:id="@+id/imageWeight"
                     android:layout_width="95dp"
-                    android:layout_height="95dp"
+                    android:layout_height="80dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/rounded_elem" />
@@ -182,7 +182,7 @@
                 <ImageView
                     android:id="@+id/imagePayload"
                     android:layout_width="95dp"
-                    android:layout_height="95dp"
+                    android:layout_height="80dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/rounded_elem" />
