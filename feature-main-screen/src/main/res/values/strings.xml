@@ -14,7 +14,7 @@
     <string name="country_name">Страна</string>
     <string name="country_val">-</string>
     <string name="cost_per_launch_name">Стоимость запуска</string>
-    <string name="cost_per_launch_val"> <b> "$"%1$d </b> млн</string>
+    <string name="cost_per_launch_val">$%1$d млн</string>
     <string name="first_stage_name">Первая ступень</string>
     <string name="second_stage_name">Вторая ступень</string>
     <string name="engines_name">Количество двигателей</string>
