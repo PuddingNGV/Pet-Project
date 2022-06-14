@@ -43,21 +43,21 @@ class StartMainScreen : AppCompatActivity() {
 
         vm.dataRocketPackLive.observe(this, Observer {
             binding.bottomSheetInclude.textRocketName.text = it.rocketName
-            binding.bottomSheetInclude.textHeightVal.text = it.height.toString()
-            binding.bottomSheetInclude.textDiameterVal.text = it.diameter.toString()
-            binding.bottomSheetInclude.textWeightVal.text = it.weight.toString()
-            binding.bottomSheetInclude.textPayloadVal.text = it.payload.toString()
+            binding.bottomSheetInclude.includedHorizontal.textHeightVal.text = it.height.toString()
+            binding.bottomSheetInclude.includedHorizontal.textDiameterVal.text = it.diameter.toString()
+            binding.bottomSheetInclude.includedHorizontal.textWeightVal.text = it.weight.toString()
+            binding.bottomSheetInclude.includedHorizontal.textPayloadVal.text = it.payload.toString()
             binding.bottomSheetInclude.textFirstFlightVal.text = it.firstFlight
             binding.bottomSheetInclude.textCountryVal.text = it.country
 
             binding.bottomSheetInclude.textCostPerLaunchVal.text = getString(R.string.cost_per_launch_val, ((it.costPerLaunch) / 1000000))
-            binding.bottomSheetInclude.includeFirstStage.textEnginesVal.text = it.firstStageInfo.engines.toString()
-            binding.bottomSheetInclude.includeFirstStage.textFuelAmountTonsVal.text = it.firstStageInfo.fuelAmountTons.toString()
-            binding.bottomSheetInclude.includeFirstStage.textBurnTimeSecVal.text = it.firstStageInfo.burnTimeSec.toString()
+            binding.bottomSheetInclude.includedFirstStage.textEnginesVal.text = it.firstStageInfo.engines.toString()
+            binding.bottomSheetInclude.includedFirstStage.textFuelAmountTonsVal.text = it.firstStageInfo.fuelAmountTons.toString()
+            binding.bottomSheetInclude.includedFirstStage.textBurnTimeSecVal.text = it.firstStageInfo.burnTimeSec.toString()
 
-            binding.bottomSheetInclude.includeSecondStage.textEnginesVal.text = it.secondStageInfo.engines.toString()
-            binding.bottomSheetInclude.includeSecondStage.textFuelAmountTonsVal.text = it.secondStageInfo.fuelAmountTons.toString()
-            binding.bottomSheetInclude.includeSecondStage.textBurnTimeSecVal.text = it.secondStageInfo.burnTimeSec.toString()
+            binding.bottomSheetInclude.includedSecondStage.textEnginesVal.text = it.secondStageInfo.engines.toString()
+            binding.bottomSheetInclude.includedSecondStage.textFuelAmountTonsVal.text = it.secondStageInfo.fuelAmountTons.toString()
+            binding.bottomSheetInclude.includedSecondStage.textBurnTimeSecVal.text = it.secondStageInfo.burnTimeSec.toString()
         })
 
     }

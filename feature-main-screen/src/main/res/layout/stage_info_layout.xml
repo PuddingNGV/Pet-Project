@@ -4,76 +4,67 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    tools:showIn="@layout/coordinator_layout">
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textEngines"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
         android:text="@string/engines_name"
-        android:textColor="#CFCECE"
-        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/name_param"/>
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textEnginesVal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="40dp"
         android:text="@string/engines_val"
-        android:textColor="#CFCECE"
-        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/val_param"/>
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textFuelAmountTons"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="20dp"
         android:text="@string/fuel_amount_tons_name"
-        android:textColor="#CFCECE"
-        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textEngines" />
+        app:layout_constraintTop_toBottomOf="@+id/textEngines"
+        style="@style/name_param"/>
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textFuelAmountTonsVal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="40dp"
         android:text="@string/fuel_amount_tons_val"
-        android:textColor="#CFCECE"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textEnginesVal" />
+        app:layout_constraintEnd_toStartOf="@+id/textFuelAmountTonsValType"
+        app:layout_constraintTop_toBottomOf="@+id/textEnginesVal"
+        style="@style/val_param"
+        android:layout_marginEnd="4dp"/>
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textFuelAmountTonsValType"
+        android:text="@string/ton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textEnginesVal"
+        style="@style/val_param_type"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textBurnTimeSec"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="20dp"
         android:text="@string/burn_time_sec_name"
-        android:textColor="#CFCECE"
-        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textFuelAmountTons" />
+        app:layout_constraintTop_toBottomOf="@+id/textFuelAmountTons"
+        style="@style/name_param"/>
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textBurnTimeSecVal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="40dp"
         android:text="@string/burn_time_sec_val"
-        android:textColor="#CFCECE"
-        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/textBurnTimeSecValType"
+        app:layout_constraintTop_toBottomOf="@+id/textFuelAmountTonsVal"
+        style="@style/val_param"
+        android:layout_marginEnd="8dp" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textBurnTimeSecValType"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="36dp"
+        android:text="@string/sec"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textFuelAmountTonsVal" />
+        app:layout_constraintTop_toBottomOf="@+id/textFuelAmountTonsVal"
+        style="@style/val_param_type"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

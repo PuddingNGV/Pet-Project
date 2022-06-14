@@ -10,20 +10,19 @@
     android:background="@drawable/rounded"
     app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textRocketName"
         android:layout_width="wrap_content"
-        android:layout_height="0dp"
+        android:layout_height="32dp"
         android:layout_marginStart="40dp"
         android:layout_marginTop="20dp"
         android:text="@string/rocket_name"
-        android:textColor="#F8F8F8"
-        android:textSize="34sp"
         app:layout_constraintBottom_toTopOf="@+id/scrollLayout"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/rocket_name" />
 
-    <ImageButton
+    <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/imageButton"
         android:layout_width="48dp"
         android:layout_height="0dp"
@@ -47,181 +46,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageButton">
 
-        <LinearLayout
-            android:id="@+id/linearLayoutMenu"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent">
-
-                <ImageView
-                    android:id="@+id/imageHeight"
-                    android:layout_width="90dp"
-                    android:layout_height="80dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/rounded_elem" />
-
-                <TextView
-                    android:id="@+id/textHeightVal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="25dp"
-                    android:text="@string/height_val"
-                    android:textColor="#FFFFFF"
-                    android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="@+id/imageHeight"
-                    app:layout_constraintStart_toStartOf="@+id/imageHeight"
-                    app:layout_constraintTop_toTopOf="@+id/imageHeight" />
-
-                <TextView
-                    android:id="@+id/textHeight"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginBottom="20dp"
-                    android:text="@string/height_name"
-                    android:textColor="#B8B6B6"
-                    android:textSize="13sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/imageHeight"
-                    app:layout_constraintEnd_toEndOf="@+id/imageHeight"
-                    app:layout_constraintStart_toStartOf="@+id/imageHeight"
-                    app:layout_constraintTop_toBottomOf="@+id/textHeightVal" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="15dp">
-
-                <ImageView
-                    android:id="@+id/imageDiameter"
-                    android:layout_width="90dp"
-                    android:layout_height="80dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/rounded_elem" />
-
-                <TextView
-                    android:id="@+id/textDiameterVal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="25dp"
-                    android:text="@string/diameter_val"
-                    android:textColor="#FFFFFF"
-                    android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="@+id/imageDiameter"
-                    app:layout_constraintStart_toStartOf="@+id/imageDiameter"
-                    app:layout_constraintTop_toTopOf="@+id/imageDiameter" />
-
-                <TextView
-                    android:id="@+id/textDiameter"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginBottom="20dp"
-                    android:text="@string/diameter_name"
-                    android:textColor="#B8B6B6"
-                    android:textSize="13sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/imageDiameter"
-                    app:layout_constraintEnd_toEndOf="@+id/imageDiameter"
-                    app:layout_constraintStart_toStartOf="@+id/imageDiameter"
-                    app:layout_constraintTop_toBottomOf="@+id/textDiameterVal" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="15dp">
-
-                <ImageView
-                    android:id="@+id/imageWeight"
-                    android:layout_width="90dp"
-                    android:layout_height="80dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/rounded_elem" />
-
-                <TextView
-                    android:id="@+id/textWeightVal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="25dp"
-                    android:text="@string/weight_val"
-                    android:textColor="#FFFFFF"
-                    android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="@+id/imageWeight"
-                    app:layout_constraintStart_toStartOf="@+id/imageWeight"
-                    app:layout_constraintTop_toTopOf="@+id/imageWeight" />
-
-                <TextView
-                    android:id="@+id/textWeight"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginBottom="20dp"
-                    android:text="@string/weight_name"
-                    android:textColor="#B8B6B6"
-                    android:textSize="13sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/imageWeight"
-                    app:layout_constraintEnd_toEndOf="@+id/imageWeight"
-                    app:layout_constraintStart_toStartOf="@+id/imageWeight"
-                    app:layout_constraintTop_toBottomOf="@+id/textWeightVal" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="15dp">
-
-                <ImageView
-                    android:id="@+id/imagePayload"
-                    android:layout_width="90dp"
-                    android:layout_height="80dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/rounded_elem" />
-
-                <TextView
-                    android:id="@+id/textPayloadVal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="25dp"
-                    android:text="@string/payload_val"
-                    android:textColor="#FFFFFF"
-                    android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="@+id/imagePayload"
-                    app:layout_constraintStart_toStartOf="@+id/imagePayload"
-                    app:layout_constraintTop_toTopOf="@+id/imagePayload" />
-
-                <TextView
-                    android:id="@+id/textPayload"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginBottom="20dp"
-                    android:text="@string/payload_name"
-                    android:textColor="#B8B6B6"
-                    android:textSize="13sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/imagePayload"
-                    app:layout_constraintEnd_toEndOf="@+id/imagePayload"
-                    app:layout_constraintStart_toStartOf="@+id/imagePayload"
-                    app:layout_constraintTop_toBottomOf="@+id/textPayloadVal" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </LinearLayout>
+        <include layout="@layout/horizontal_info_layout"
+            android:id="@+id/included_horizontal"
+            />
     </HorizontalScrollView>
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/nestedScrollView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="20dp"
         android:fillViewport="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintDimensionRatio="1:1"
@@ -230,7 +63,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/scrollLayout">
 
-        <LinearLayout
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -241,121 +74,81 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/textFirstFlight"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="40dp"
                     android:text="@string/first_flight_name"
-                    android:textColor="#CFCECE"
-                    android:textSize="20sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    style="@style/name_param" />
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/textFirstFlightVal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="40dp"
                     android:text="@string/first_flight_val"
-                    android:textColor="#CFCECE"
-                    android:textSize="20sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    style="@style/val_param" />
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/textCountry"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="40dp"
-                    android:layout_marginTop="20dp"
                     android:text="@string/country_name"
-                    android:textColor="#CFCECE"
-                    android:textSize="20sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textFirstFlight" />
+                    app:layout_constraintTop_toBottomOf="@+id/textFirstFlight"
+                    style="@style/name_param"/>
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/textCountryVal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginEnd="40dp"
                     android:text="@string/country_val"
-                    android:textColor="#CFCECE"
-                    android:textSize="20sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textFirstFlightVal" />
+                    app:layout_constraintTop_toBottomOf="@+id/textFirstFlightVal"
+                    style="@style/val_param"/>
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/textCostPerLaunch"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="40dp"
-                    android:layout_marginTop="20dp"
                     android:text="@string/cost_per_launch_name"
-                    android:textColor="#CFCECE"
-                    android:textSize="20sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textCountry" />
+                    app:layout_constraintTop_toBottomOf="@+id/textCountry"
+                    style="@style/name_param"/>
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/textCostPerLaunchVal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginEnd="40dp"
                     android:text="@string/cost_per_launch_val"
-                    android:textColor="#CFCECE"
-                    android:textSize="20sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textCountryVal" />
+                    app:layout_constraintTop_toBottomOf="@+id/textCountryVal"
+                    style="@style/val_param"/>
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/textFirstStage"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="40dp"
-                    android:layout_marginTop="20dp"
                     android:text="@string/first_stage_name"
-                    android:textColor="#F8F8F8"
-                    android:textSize="24sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textCostPerLaunch" />
+                    app:layout_constraintTop_toBottomOf="@+id/textCostPerLaunch"
+                    style="@style/stage_name" />
 
                 <include
-                    android:id="@+id/includeFirstStage"
+                    android:id="@+id/includedFirstStage"
                     layout="@layout/stage_info_layout"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textFirstStage" />
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/textSecondStage"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="40dp"
-                    android:layout_marginTop="20dp"
                     android:text="@string/second_stage_name"
-                    android:textColor="#F8F8F8"
-                    android:textSize="24sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/includeFirstStage" />
+                    app:layout_constraintTop_toBottomOf="@+id/includedFirstStage"
+                    style="@style/stage_name"/>
 
                 <include
-                    android:id="@+id/includeSecondStage"
+                    android:id="@+id/includedSecondStage"
                     layout="@layout/stage_info_layout"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textSecondStage" />
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/buttonViewLaunch"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -369,10 +162,10 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/includeSecondStage" />
+                    app:layout_constraintTop_toBottomOf="@+id/includedSecondStage" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
-        </LinearLayout>
+        </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.core.widget.NestedScrollView>
 
 

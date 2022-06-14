@@ -23,4 +23,6 @@
     <string name="fuel_amount_tons_val">-</string>
     <string name="burn_time_sec_name">Время сгорания</string>
     <string name="burn_time_sec_val">-</string>
+    <string name="ton">ton</string>
+    <string name="sec">sec</string>
 </resources>

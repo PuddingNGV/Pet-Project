@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayoutMenu"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:showIn="@layout/coordinator_layout">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageHeight"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/rounded_elem"
+            style="@style/horizontal_rounded_elem" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textHeightVal"
+            android:text="@string/height_val"
+            app:layout_constraintEnd_toEndOf="@+id/imageHeight"
+            app:layout_constraintStart_toStartOf="@+id/imageHeight"
+            app:layout_constraintTop_toTopOf="@+id/imageHeight"
+            style="@style/horizontal_param_val" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textHeight"
+            android:text="@string/height_name"
+            app:layout_constraintBottom_toBottomOf="@+id/imageHeight"
+            app:layout_constraintEnd_toEndOf="@+id/imageHeight"
+            app:layout_constraintStart_toStartOf="@+id/imageHeight"
+            app:layout_constraintTop_toBottomOf="@+id/textHeightVal"
+            style="@style/horizontal_param_text" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="15dp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageDiameter"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/rounded_elem"
+            style="@style/horizontal_rounded_elem"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textDiameterVal"
+            android:text="@string/diameter_val"
+            app:layout_constraintEnd_toEndOf="@+id/imageDiameter"
+            app:layout_constraintStart_toStartOf="@+id/imageDiameter"
+            app:layout_constraintTop_toTopOf="@+id/imageDiameter"
+            style="@style/horizontal_param_val"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textDiameter"
+            android:text="@string/diameter_name"
+            app:layout_constraintBottom_toBottomOf="@+id/imageDiameter"
+            app:layout_constraintEnd_toEndOf="@+id/imageDiameter"
+            app:layout_constraintStart_toStartOf="@+id/imageDiameter"
+            app:layout_constraintTop_toBottomOf="@+id/textDiameterVal"
+            style="@style/horizontal_param_text"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="15dp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageWeight"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/rounded_elem"
+            style="@style/horizontal_rounded_elem"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textWeightVal"
+            android:text="@string/weight_val"
+            app:layout_constraintEnd_toEndOf="@+id/imageWeight"
+            app:layout_constraintStart_toStartOf="@+id/imageWeight"
+            app:layout_constraintTop_toTopOf="@+id/imageWeight"
+            style="@style/horizontal_param_val"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textWeight"
+            android:text="@string/weight_name"
+            app:layout_constraintBottom_toBottomOf="@+id/imageWeight"
+            app:layout_constraintEnd_toEndOf="@+id/imageWeight"
+            app:layout_constraintStart_toStartOf="@+id/imageWeight"
+            app:layout_constraintTop_toBottomOf="@+id/textWeightVal"
+            style="@style/horizontal_param_text"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="15dp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imagePayload"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/rounded_elem"
+            style="@style/horizontal_rounded_elem"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textPayloadVal"
+            android:text="@string/payload_val"
+            app:layout_constraintEnd_toEndOf="@+id/imagePayload"
+            app:layout_constraintStart_toStartOf="@+id/imagePayload"
+            app:layout_constraintTop_toTopOf="@+id/imagePayload"
+            style="@style/horizontal_param_val"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textPayload"
+            android:text="@string/payload_name"
+            app:layout_constraintBottom_toBottomOf="@+id/imagePayload"
+            app:layout_constraintEnd_toEndOf="@+id/imagePayload"
+            app:layout_constraintStart_toStartOf="@+id/imagePayload"
+            app:layout_constraintTop_toBottomOf="@+id/textPayloadVal"
+            style="@style/horizontal_param_text"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>
