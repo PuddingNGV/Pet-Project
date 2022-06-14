@@ -49,7 +49,8 @@ class StartMainScreen : AppCompatActivity() {
             binding.bottomSheetInclude.textPayloadVal.text = it.payload.toString()
             binding.bottomSheetInclude.textFirstFlightVal.text = it.firstFlight
             binding.bottomSheetInclude.textCountryVal.text = it.country
-            binding.bottomSheetInclude.textCostPerLaunchVal.text = it.costPerLaunch.toString()
+
+            binding.bottomSheetInclude.textCostPerLaunchVal.text = getString(R.string.cost_per_launch_val, ((it.costPerLaunch) / 1000000))
             binding.bottomSheetInclude.includeFirstStage.textEnginesVal.text = it.firstStageInfo.engines.toString()
             binding.bottomSheetInclude.includeFirstStage.textFuelAmountTonsVal.text = it.firstStageInfo.fuelAmountTons.toString()
             binding.bottomSheetInclude.includeFirstStage.textBurnTimeSecVal.text = it.firstStageInfo.burnTimeSec.toString()
@@ -60,6 +61,8 @@ class StartMainScreen : AppCompatActivity() {
         })
 
     }
+
+
 
     private fun createBottomSheet() {
             val bottomSheet = findViewById<ConstraintLayout>(R.id.bottom_sheet_include)

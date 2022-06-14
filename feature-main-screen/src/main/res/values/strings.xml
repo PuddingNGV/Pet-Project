@@ -1,21 +1,20 @@
 <resources>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="rocket_name">Rocket name</string>
-    <string name="height_val">-</string>
     <string name="height_name">Высота, ft</string>
-    <string name="diameter_val">-</string>
-    <string name="weight_val">-</string>
-    <string name="payload_val">-</string>
+    <string name="height_val">-</string>
     <string name="diameter_name">Диаметр, lt</string>
+    <string name="diameter_val">-</string>
     <string name="weight_name">Масса, ft</string>
+    <string name="weight_val">-</string>
     <string name="payload_name">Нагрузка, leo</string>
+    <string name="payload_val">-</string>
     <string name="first_flight_name">Первый запуск</string>
     <string name="first_flight_val">-</string>
     <string name="country_name">Страна</string>
     <string name="country_val">-</string>
     <string name="cost_per_launch_name">Стоимость запуска</string>
-    <string name="cost_per_launch_val">-</string>
+    <string name="cost_per_launch_val"> <b> "$"%1$d </b> млн</string>
     <string name="first_stage_name">Первая ступень</string>
     <string name="second_stage_name">Вторая ступень</string>
     <string name="engines_name">Количество двигателей</string>
