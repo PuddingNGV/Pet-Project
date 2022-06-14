@@ -19,7 +19,7 @@
         android:text="@string/engines_val"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        style="@style/val_param"/>
+        style="@style/val_param_include"/>
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textFuelAmountTons"
@@ -30,18 +30,17 @@
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textFuelAmountTonsVal"
+        style="@style/val_param_include"
         android:text="@string/fuel_amount_tons_val"
-        app:layout_constraintEnd_toStartOf="@+id/textFuelAmountTonsValType"
-        app:layout_constraintTop_toBottomOf="@+id/textEnginesVal"
-        style="@style/val_param"
-        android:layout_marginEnd="4dp"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textEnginesVal" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textFuelAmountTonsValType"
+        style="@style/val_param_type"
         android:text="@string/ton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textEnginesVal"
-        style="@style/val_param_type"/>
+        app:layout_constraintStart_toEndOf="@+id/textFuelAmountTonsVal"
+        app:layout_constraintTop_toBottomOf="@+id/textEnginesVal" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textBurnTimeSec"
@@ -52,17 +51,16 @@
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textBurnTimeSecVal"
+        style="@style/val_param_include"
         android:text="@string/burn_time_sec_val"
-        app:layout_constraintEnd_toStartOf="@+id/textBurnTimeSecValType"
-        app:layout_constraintTop_toBottomOf="@+id/textFuelAmountTonsVal"
-        style="@style/val_param"
-        android:layout_marginEnd="8dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textFuelAmountTonsVal" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textBurnTimeSecValType"
+        style="@style/val_param_type"
         android:text="@string/sec"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textFuelAmountTonsVal"
-        style="@style/val_param_type"/>
+        app:layout_constraintStart_toEndOf="@+id/textBurnTimeSecVal"
+        app:layout_constraintTop_toBottomOf="@+id/textFuelAmountTonsVal" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
