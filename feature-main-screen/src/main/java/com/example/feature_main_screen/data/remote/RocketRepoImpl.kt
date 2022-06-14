@@ -39,8 +39,7 @@ class RocketRepoImpl(private val context: Context) : RocketRepo {
 
         val firstStageBTS = checkNullRetNum(request.firstStage.burnTimeSec.toString())
         val secondStageBTS = checkNullRetNum(request.secondStage.burnTimeSec.toString())
-
-
+        
         val firstStage = StageInfo(
             request.firstStage.engines,
             request.firstStage.fuelAmountTons,
