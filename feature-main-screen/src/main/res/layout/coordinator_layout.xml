@@ -58,7 +58,7 @@
 
                 <ImageView
                     android:id="@+id/imageHeight"
-                    android:layout_width="95dp"
+                    android:layout_width="90dp"
                     android:layout_height="80dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -80,8 +80,8 @@
                     android:id="@+id/textHeight"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="20dp"
                     android:text="@string/height_name"
                     android:textColor="#B8B6B6"
                     android:textSize="13sp"
@@ -95,11 +95,11 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="25dp">
+                android:layout_marginLeft="15dp">
 
                 <ImageView
                     android:id="@+id/imageDiameter"
-                    android:layout_width="95dp"
+                    android:layout_width="90dp"
                     android:layout_height="80dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -121,8 +121,8 @@
                     android:id="@+id/textDiameter"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="20dp"
                     android:text="@string/diameter_name"
                     android:textColor="#B8B6B6"
                     android:textSize="13sp"
@@ -136,11 +136,11 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="25dp">
+                android:layout_marginLeft="15dp">
 
                 <ImageView
                     android:id="@+id/imageWeight"
-                    android:layout_width="95dp"
+                    android:layout_width="90dp"
                     android:layout_height="80dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -162,8 +162,8 @@
                     android:id="@+id/textWeight"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="20dp"
                     android:text="@string/weight_name"
                     android:textColor="#B8B6B6"
                     android:textSize="13sp"
@@ -177,11 +177,11 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="25dp">
+                android:layout_marginLeft="15dp">
 
                 <ImageView
                     android:id="@+id/imagePayload"
-                    android:layout_width="95dp"
+                    android:layout_width="90dp"
                     android:layout_height="80dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -203,8 +203,8 @@
                     android:id="@+id/textPayload"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="20dp"
                     android:text="@string/payload_name"
                     android:textColor="#B8B6B6"
                     android:textSize="13sp"
