@@ -12,22 +12,22 @@
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textRocketName"
+        style="@style/rocket_name"
         android:layout_width="wrap_content"
-        android:layout_height="32dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="35dp"
         android:text="@string/rocket_name"
         app:layout_constraintBottom_toTopOf="@+id/scrollLayout"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        style="@style/rocket_name" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/imageButton"
-        android:layout_width="48dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="40dp"
+        android:layout_width="27dp"
+        android:layout_height="27dp"
+        android:layout_marginTop="41dp"
+        android:layout_marginEnd="32dp"
         android:background="@null"
         android:contentDescription="@null"
         app:layout_constraintEnd_toEndOf="parent"
@@ -40,15 +40,15 @@
         android:id="@+id/scrollLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="20dp"
         android:scrollbars="none"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton">
+        app:layout_constraintTop_toBottomOf="@+id/textRocketName">
 
-        <include layout="@layout/horizontal_info_layout"
+        <include
             android:id="@+id/included_horizontal"
-            />
+            layout="@layout/horizontal_info_layout" />
     </HorizontalScrollView>
 
     <androidx.core.widget.NestedScrollView
@@ -76,52 +76,52 @@
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/textFirstFlight"
+                    style="@style/name_param"
                     android:text="@string/first_flight_name"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    style="@style/name_param" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/textFirstFlightVal"
+                    style="@style/val_param"
                     android:text="@string/first_flight_val"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    style="@style/val_param" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/textCountry"
+                    style="@style/name_param"
                     android:text="@string/country_name"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textFirstFlight"
-                    style="@style/name_param"/>
+                    app:layout_constraintTop_toBottomOf="@+id/textFirstFlight" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/textCountryVal"
+                    style="@style/val_param"
                     android:text="@string/country_val"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textFirstFlightVal"
-                    style="@style/val_param"/>
+                    app:layout_constraintTop_toBottomOf="@+id/textFirstFlightVal" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/textCostPerLaunch"
+                    style="@style/name_param"
                     android:text="@string/cost_per_launch_name"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textCountry"
-                    style="@style/name_param"/>
+                    app:layout_constraintTop_toBottomOf="@+id/textCountry" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/textCostPerLaunchVal"
+                    style="@style/val_param"
                     android:text="@string/cost_per_launch_val"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textCountryVal"
-                    style="@style/val_param"/>
+                    app:layout_constraintTop_toBottomOf="@+id/textCountryVal" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/textFirstStage"
+                    style="@style/stage_name"
                     android:text="@string/first_stage_name"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textCostPerLaunch"
-                    style="@style/stage_name" />
+                    app:layout_constraintTop_toBottomOf="@+id/textCostPerLaunch" />
 
                 <include
                     android:id="@+id/includedFirstStage"
@@ -134,10 +134,10 @@
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/textSecondStage"
+                    style="@style/stage_name"
                     android:text="@string/second_stage_name"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/includedFirstStage"
-                    style="@style/stage_name"/>
+                    app:layout_constraintTop_toBottomOf="@+id/includedFirstStage" />
 
                 <include
                     android:id="@+id/includedSecondStage"
