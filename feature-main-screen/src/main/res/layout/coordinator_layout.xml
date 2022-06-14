@@ -260,7 +260,6 @@
                     android:text="@string/first_flight_val"
                     android:textColor="#CFCECE"
                     android:textSize="20sp"
-                    android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -285,7 +284,6 @@
                     android:text="@string/country_val"
                     android:textColor="#CFCECE"
                     android:textSize="20sp"
-                    android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textFirstFlightVal" />
 
@@ -310,7 +308,6 @@
                     android:text="@string/cost_per_launch_val"
                     android:textColor="#CFCECE"
                     android:textSize="20sp"
-                    android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textCountryVal" />
 
