@@ -69,7 +69,7 @@ class RocketRepoImpl(private val context: Context) : RocketRepo {
                 true -> request.payloadWeights[0].kg
                 else -> request.payloadWeights[0].lb
             },
-
+            request.flickrImages,
             request.firstFlight,
             request.country,
             request.costPerLaunch,

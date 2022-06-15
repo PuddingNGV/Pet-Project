@@ -9,11 +9,13 @@ class RocketInfo(
     val weight: Int,
     val payload: Int,
 
+    val imageUlrList: List<String>,
+
     val firstFlight: String,
     val country: String,
     val costPerLaunch: Int,
 
     val firstStageInfo: StageInfo,
     val secondStageInfo: StageInfo
-    ) {
-}
+
+    )

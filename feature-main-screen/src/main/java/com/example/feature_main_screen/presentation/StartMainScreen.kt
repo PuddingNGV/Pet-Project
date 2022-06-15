@@ -6,16 +6,9 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.feature_main_screen.R
-import com.example.feature_main_screen.data.remote.RocketRepoImpl
 import com.example.feature_main_screen.databinding.ActivityMainScreenBinding
-import com.example.feature_main_screen.domain.usecase.GetDataUseCase
 import com.google.android.material.bottomsheet.BottomSheetBehavior
-import com.google.gson.Gson
-import com.example.feature_main_screen.data.remote.responce.RocketResponse
-import com.example.feature_main_screen.data.remote.ApiHelper
-import com.example.feature_main_screen.data.remote.RetrofitBuilder
-import com.example.feature_main_screen.data.remote.ApiRockets
-
+import com.squareup.picasso.Picasso
 
 
 class StartMainScreen : AppCompatActivity() {
@@ -58,11 +51,11 @@ class StartMainScreen : AppCompatActivity() {
             binding.bottomSheetInclude.includedSecondStage.textEnginesVal.text = it.secondStageInfo.engines.toString()
             binding.bottomSheetInclude.includedSecondStage.textFuelAmountTonsVal.text = it.secondStageInfo.fuelAmountTons.toString()
             binding.bottomSheetInclude.includedSecondStage.textBurnTimeSecVal.text = it.secondStageInfo.burnTimeSec.toString()
+
+            imageViewer(it.imageUlrList)
         })
 
     }
-
-
 
     private fun createBottomSheet() {
             val bottomSheet = findViewById<ConstraintLayout>(R.id.bottom_sheet_include)
@@ -70,5 +63,11 @@ class StartMainScreen : AppCompatActivity() {
                 peekHeight = 200
                 this.state = BottomSheetBehavior.STATE_COLLAPSED
             }
+    }
+
+    private fun imageViewer (imageList:List<String>) {
+        Picasso.get()
+            .load(imageList[(0..imageList.lastIndex).random()])
+            .into(binding.imageRocket)
     }
 }
