@@ -54,7 +54,6 @@ class StartMainScreen : AppCompatActivity() {
 
             imageViewer(it.imageUlrList)
         })
-
     }
 
     private fun createBottomSheet() {
@@ -66,8 +65,10 @@ class StartMainScreen : AppCompatActivity() {
     }
 
     private fun imageViewer (imageList:List<String>) {
-        Picasso.get()
-            .load(imageList[(0..imageList.lastIndex).random()])
-            .into(binding.imageRocket)
+
+        Picasso.get().load(imageList[imageList.indices.random()]).into(binding.imageRocket)
+        binding.imageRocket.setOnClickListener {
+           vm.switchImage(imageList).into(binding.imageRocket)
+        }
     }
 }

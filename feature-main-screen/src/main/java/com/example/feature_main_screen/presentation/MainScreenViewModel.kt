@@ -4,10 +4,13 @@ package com.example.feature_main_screen.presentation
 import androidx.lifecycle.*
 import com.example.feature_main_screen.domain.models.RocketInfo
 import com.example.feature_main_screen.domain.usecase.GetDataUseCase
+import com.squareup.picasso.Picasso
+import com.squareup.picasso.RequestCreator
 import kotlinx.coroutines.*
 
-
 class MainScreenViewModel(private val getDataUseCase: GetDataUseCase): ViewModel() {
+
+    private var intImage = 0
 
     init {
         getData()
@@ -22,6 +25,30 @@ class MainScreenViewModel(private val getDataUseCase: GetDataUseCase): ViewModel
         }
     }
 
+    fun switchImage(imageList:List<String>): RequestCreator {
+
+        fun picassoRequestCreate(int: Int): RequestCreator {
+            return Picasso.get()
+                .load(imageList[int])
+        }
+
+        fun nextImage(): RequestCreator {
+            if (intImage !in imageList.indices) {
+                intImage = 0
+            }
+
+            return when (intImage) {
+                in imageList.indices -> {
+                    val picassoRequest = picassoRequestCreate(intImage)
+                    println(intImage)
+                    intImage += 1
+                    picassoRequest
+                }
+                else -> picassoRequestCreate(intImage)
+            }
+        }
+        return nextImage()
+    }
 
 
 
