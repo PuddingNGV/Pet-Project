@@ -40,7 +40,6 @@ class MainScreenViewModel(private val getDataUseCase: GetDataUseCase): ViewModel
             return when (intImage) {
                 in imageList.indices -> {
                     val picassoRequest = picassoRequestCreate(intImage)
-                    println(intImage)
                     intImage += 1
                     picassoRequest
                 }
