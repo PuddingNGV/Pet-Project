@@ -1,8 +1,8 @@
 package com.pet_project
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.example.feature_main_screen.presentation.StartMainScreen
 
 class MainActivity : AppCompatActivity() {

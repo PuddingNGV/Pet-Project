@@ -1,14 +1,18 @@
 package com.example.feature_main_screen.presentation
 
 
-import androidx.lifecycle.*
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.feature_main_screen.domain.models.RocketInfo
 import com.example.feature_main_screen.domain.usecase.GetDataUseCase
 import com.squareup.picasso.Picasso
 import com.squareup.picasso.RequestCreator
-import kotlinx.coroutines.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
-class MainScreenViewModel(private val getDataUseCase: GetDataUseCase): ViewModel() {
+class MainScreenViewModel(private val getDataUseCase: GetDataUseCase) : ViewModel() {
 
     private var intImage = 0
 
@@ -17,7 +21,7 @@ class MainScreenViewModel(private val getDataUseCase: GetDataUseCase): ViewModel
     }
 
     private var dataRocketPackMutable = MutableLiveData<RocketInfo>()
-    var dataRocketPackLive:LiveData<RocketInfo> = dataRocketPackMutable
+    var dataRocketPackLive: LiveData<RocketInfo> = dataRocketPackMutable
 
     private fun getData() {
         viewModelScope.launch(Dispatchers.Main) {
@@ -25,7 +29,7 @@ class MainScreenViewModel(private val getDataUseCase: GetDataUseCase): ViewModel
         }
     }
 
-    fun switchImage(imageList:List<String>): RequestCreator {
+    fun switchImage(imageList: List<String>): RequestCreator {
 
         fun picassoRequestCreate(int: Int): RequestCreator {
             return Picasso.get()
@@ -48,7 +52,6 @@ class MainScreenViewModel(private val getDataUseCase: GetDataUseCase): ViewModel
         }
         return nextImage()
     }
-
 
 
 /*

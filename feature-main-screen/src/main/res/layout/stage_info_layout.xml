@@ -9,24 +9,24 @@
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textEngines"
+        style="@style/name_param"
         android:text="@string/engines_name"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        style="@style/name_param"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textEnginesVal"
+        style="@style/val_param_include"
         android:text="@string/engines_val"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        style="@style/val_param_include"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textFuelAmountTons"
+        style="@style/name_param"
         android:text="@string/fuel_amount_tons_name"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textEngines"
-        style="@style/name_param"/>
+        app:layout_constraintTop_toBottomOf="@+id/textEngines" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textFuelAmountTonsVal"
@@ -44,10 +44,10 @@
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textBurnTimeSec"
+        style="@style/name_param"
         android:text="@string/burn_time_sec_name"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textFuelAmountTons"
-        style="@style/name_param"/>
+        app:layout_constraintTop_toBottomOf="@+id/textFuelAmountTons" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textBurnTimeSecVal"

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/linearLayoutMenu"
     android:layout_width="wrap_content"
@@ -13,27 +13,27 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imageHeight"
+            style="@style/horizontal_rounded_elem"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/rounded_elem"
-            style="@style/horizontal_rounded_elem" />
+            app:srcCompat="@drawable/rounded_elem" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textHeightVal"
+            style="@style/horizontal_param_val"
             android:text="@string/height_val"
             app:layout_constraintEnd_toEndOf="@+id/imageHeight"
             app:layout_constraintStart_toStartOf="@+id/imageHeight"
-            app:layout_constraintTop_toTopOf="@+id/imageHeight"
-            style="@style/horizontal_param_val" />
+            app:layout_constraintTop_toTopOf="@+id/imageHeight" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textHeight"
+            style="@style/horizontal_param_text"
             android:text="@string/height_name"
             app:layout_constraintBottom_toBottomOf="@+id/imageHeight"
             app:layout_constraintEnd_toEndOf="@+id/imageHeight"
             app:layout_constraintStart_toStartOf="@+id/imageHeight"
-            app:layout_constraintTop_toBottomOf="@+id/textHeightVal"
-            style="@style/horizontal_param_text" />
+            app:layout_constraintTop_toBottomOf="@+id/textHeightVal" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -44,27 +44,27 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imageDiameter"
+            style="@style/horizontal_rounded_elem"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/rounded_elem"
-            style="@style/horizontal_rounded_elem"/>
+            app:srcCompat="@drawable/rounded_elem" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textDiameterVal"
+            style="@style/horizontal_param_val"
             android:text="@string/diameter_val"
             app:layout_constraintEnd_toEndOf="@+id/imageDiameter"
             app:layout_constraintStart_toStartOf="@+id/imageDiameter"
-            app:layout_constraintTop_toTopOf="@+id/imageDiameter"
-            style="@style/horizontal_param_val"/>
+            app:layout_constraintTop_toTopOf="@+id/imageDiameter" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textDiameter"
+            style="@style/horizontal_param_text"
             android:text="@string/diameter_name"
             app:layout_constraintBottom_toBottomOf="@+id/imageDiameter"
             app:layout_constraintEnd_toEndOf="@+id/imageDiameter"
             app:layout_constraintStart_toStartOf="@+id/imageDiameter"
-            app:layout_constraintTop_toBottomOf="@+id/textDiameterVal"
-            style="@style/horizontal_param_text"/>
+            app:layout_constraintTop_toBottomOf="@+id/textDiameterVal" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -75,27 +75,27 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imageWeight"
+            style="@style/horizontal_rounded_elem"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/rounded_elem"
-            style="@style/horizontal_rounded_elem"/>
+            app:srcCompat="@drawable/rounded_elem" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textWeightVal"
+            style="@style/horizontal_param_val"
             android:text="@string/weight_val"
             app:layout_constraintEnd_toEndOf="@+id/imageWeight"
             app:layout_constraintStart_toStartOf="@+id/imageWeight"
-            app:layout_constraintTop_toTopOf="@+id/imageWeight"
-            style="@style/horizontal_param_val"/>
+            app:layout_constraintTop_toTopOf="@+id/imageWeight" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textWeight"
+            style="@style/horizontal_param_text"
             android:text="@string/weight_name"
             app:layout_constraintBottom_toBottomOf="@+id/imageWeight"
             app:layout_constraintEnd_toEndOf="@+id/imageWeight"
             app:layout_constraintStart_toStartOf="@+id/imageWeight"
-            app:layout_constraintTop_toBottomOf="@+id/textWeightVal"
-            style="@style/horizontal_param_text"/>
+            app:layout_constraintTop_toBottomOf="@+id/textWeightVal" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -106,27 +106,27 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imagePayload"
+            style="@style/horizontal_rounded_elem"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/rounded_elem"
-            style="@style/horizontal_rounded_elem"/>
+            app:srcCompat="@drawable/rounded_elem" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textPayloadVal"
+            style="@style/horizontal_param_val"
             android:text="@string/payload_val"
             app:layout_constraintEnd_toEndOf="@+id/imagePayload"
             app:layout_constraintStart_toStartOf="@+id/imagePayload"
-            app:layout_constraintTop_toTopOf="@+id/imagePayload"
-            style="@style/horizontal_param_val"/>
+            app:layout_constraintTop_toTopOf="@+id/imagePayload" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textPayload"
+            style="@style/horizontal_param_text"
             android:text="@string/payload_name"
             app:layout_constraintBottom_toBottomOf="@+id/imagePayload"
             app:layout_constraintEnd_toEndOf="@+id/imagePayload"
             app:layout_constraintStart_toStartOf="@+id/imagePayload"
-            app:layout_constraintTop_toBottomOf="@+id/textPayloadVal"
-            style="@style/horizontal_param_text"/>
+            app:layout_constraintTop_toBottomOf="@+id/textPayloadVal" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.appcompat.widget.LinearLayoutCompat>

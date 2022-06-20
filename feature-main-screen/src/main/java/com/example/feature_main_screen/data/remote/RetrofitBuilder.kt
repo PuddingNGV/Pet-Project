@@ -8,21 +8,21 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitBuilder {
 
-        // okhttp <-interceptor <- retrofit
+    // okhttp <-interceptor <- retrofit
     private fun getRetrofit(): Retrofit {
 
-            val httpLoggingInterceptor = HttpLoggingInterceptor()
-            httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
+        val httpLoggingInterceptor = HttpLoggingInterceptor()
+        httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.NONE
 
-            val okHttpClient = OkHttpClient.Builder()
-                .addInterceptor(httpLoggingInterceptor)
-                .build()
+        val okHttpClient = OkHttpClient.Builder()
+            .addInterceptor(httpLoggingInterceptor)
+            .build()
 
-            return Retrofit.Builder()
-                .baseUrl("https://api.spacexdata.com/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .client(okHttpClient)
-                .build()
+        return Retrofit.Builder()
+            .baseUrl("https://api.spacexdata.com/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .client(okHttpClient)
+            .build()
 
     }
 
