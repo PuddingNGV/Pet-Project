@@ -6,6 +6,7 @@ import com.example.feature_main_screen.data.remote.responce.item.RocketResponseI
 import com.example.feature_main_screen.domain.models.RocketInfo
 import com.example.feature_main_screen.domain.models.StageInfo
 import com.example.feature_main_screen.domain.repository.RocketRepo
+import com.example.feature_main_screen.data.remote.responce.item.stage.Stage
 import kotlinx.coroutines.*
 
 
@@ -22,33 +23,41 @@ class RocketRepoImpl(private val context: Context) : RocketRepo {
 
 
     override suspend fun getRocket(): RocketInfo {
-        val requestScreenId = 2
+        val requestScreenId = 3
         val requestParam = mapOf("height" to true, "diameter" to true, "mass" to true, "payload" to true)
 
         response = requestApi()
-
         return dataProcessing(response[requestScreenId], requestParam)
     }
 
     private fun dataProcessing(request: RocketResponseItem, param: Map<String, Boolean>): RocketInfo {
 
+        val stageData:List<Stage> = listOfNotNull(request.firstStage,request.secondStage, request.thirdStage, request.fourthStage, request.fifthStage, request.sixthStage)
+/*
+        for (i in stageData.indices) {
+            if (stageData[i].burnTimeSec == null) {
+                stageData[i].burnTimeSec = 0
+            }
+        }
+
+ */
+
+        println(stageData)
+
         val heightParams = param["height"]
         val diameterParams = param["diameter"]
         val massParams = param["mass"]
         val payloadParams = param["payload"]
-
-        val firstStageBTS = checkNullRetNum(request.firstStage.burnTimeSec.toString())
-        val secondStageBTS = checkNullRetNum(request.secondStage.burnTimeSec.toString())
         
         val firstStage = StageInfo(
             request.firstStage.engines,
             request.firstStage.fuelAmountTons,
-            firstStageBTS
+            request.firstStage.burnTimeSec
         )
         val secondStage = StageInfo(
             request.secondStage.engines,
             request.secondStage.fuelAmountTons,
-            secondStageBTS
+            request.secondStage.burnTimeSec
         )
         val dataRocket = RocketInfo(
             request.name,
@@ -77,13 +86,6 @@ class RocketRepoImpl(private val context: Context) : RocketRepo {
             secondStage
         )
         return dataRocket
-    }
-
-    private fun checkNullRetNum(string: String): Int {
-        return when (string) {
-            "null" -> 0
-            else -> string.toDouble().toInt()
-        }
     }
 
     private suspend fun requestApi(): RocketResponse {

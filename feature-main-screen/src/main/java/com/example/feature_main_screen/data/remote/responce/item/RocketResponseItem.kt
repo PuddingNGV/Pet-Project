@@ -2,6 +2,7 @@ package com.example.feature_main_screen.data.remote.responce.item
 
 
 import com.example.feature_main_screen.data.remote.responce.item.engines.Engines
+import com.example.feature_main_screen.data.remote.responce.item.stage.Stage
 import com.example.feature_main_screen.data.remote.responce.item.stage.first.FirstStage
 import com.example.feature_main_screen.data.remote.responce.item.stage.second.SecondStage
 import com.google.gson.annotations.SerializedName
@@ -23,10 +24,23 @@ data class RocketResponseItem(
     val diameter: Diameter,
     @SerializedName("engines")
     val engines: Engines,
+
     @SerializedName("first_flight")
     val firstFlight: String,
+
     @SerializedName("first_stage")
-    val firstStage: FirstStage,
+    val firstStage: Stage,
+    @SerializedName("second_stage")
+    val secondStage: Stage,
+    @SerializedName("third_stage")
+    val thirdStage: Stage,
+    @SerializedName("fourth_stage")
+    val fourthStage: Stage,
+    @SerializedName("fifth_stage")
+    val fifthStage: Stage,
+    @SerializedName("sixth_stage")
+    val sixthStage: Stage,
+
     @SerializedName("flickr_images")
     val flickrImages: List<String>,
     @SerializedName("height")
@@ -41,8 +55,7 @@ data class RocketResponseItem(
     val name: String,
     @SerializedName("payload_weights")
     val payloadWeights: List<PayloadWeight>,
-    @SerializedName("second_stage")
-    val secondStage: SecondStage,
+
     @SerializedName("stages")
     val stages: Int,
     @SerializedName("success_rate_pct")
