@@ -11,6 +11,10 @@ class MainActivity : AppCompatActivity() {
         startMainScreenActivity()
     }
 
+    override fun onStart() {
+        super.onStart()
+        startMainScreenActivity()
+    }
 
     private fun startMainScreenActivity() {
         startActivity(

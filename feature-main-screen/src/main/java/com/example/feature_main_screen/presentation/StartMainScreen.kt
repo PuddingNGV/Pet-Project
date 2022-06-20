@@ -1,5 +1,6 @@
 package com.example.feature_main_screen.presentation
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -62,6 +63,15 @@ class StartMainScreen : AppCompatActivity() {
                 peekHeight = 200
                 this.state = BottomSheetBehavior.STATE_COLLAPSED
             }
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        val intent = Intent(Intent.ACTION_MAIN)
+        intent.addCategory(Intent.CATEGORY_HOME)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+        startActivity(intent)
+        finish()
     }
 
     private fun imageViewer (imageList:List<String>) {
