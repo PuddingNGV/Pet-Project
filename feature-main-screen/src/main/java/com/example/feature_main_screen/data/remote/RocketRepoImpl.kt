@@ -98,16 +98,16 @@ class RocketRepoImpl(private val context: Context) : RocketRepo {
             request.fifthStage,
             request.sixthStage
         )
-        val a = mutableListOf<StageInfo>()
+        val mutableListStage = mutableListOf<StageInfo>()
         for (i in stageData.indices) {
-            val b = StageInfo(
+            val elementStageInfo = StageInfo(
                 stageData[i].engines,
                 stageData[i].fuelAmountTons,
                 stageData[i].burnTimeSec
             )
-            a.add(b)
+            mutableListStage.add(elementStageInfo)
         }
-        return a
+        return mutableListStage
     }
 
     override fun saveRocket() {
