@@ -2,7 +2,7 @@ package com.example.feature_main_screen.data.remote.responce.item.stage
 
 import com.google.gson.annotations.SerializedName
 
-data class Stage (
+data class Stage(
     @SerializedName("burn_time_sec")
     var burnTimeSec: Int,
     @SerializedName("engines")
@@ -11,4 +11,4 @@ data class Stage (
     val fuelAmountTons: Double,
     @SerializedName("reusable")
     val reusable: Boolean
-    )
+)

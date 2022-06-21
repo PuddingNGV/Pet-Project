@@ -71,6 +71,7 @@
             android:orientation="vertical">
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constrainParamLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -118,54 +119,6 @@
                     android:text="@string/cost_per_launch_val"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textCountryVal" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/textFirstStage"
-                    style="@style/stage_name"
-                    android:text="@string/first_stage_name"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textCostPerLaunch" />
-
-                <include
-                    android:id="@+id/includedFirstStage"
-                    layout="@layout/stage_info_layout"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textFirstStage" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/textSecondStage"
-                    style="@style/stage_name"
-                    android:text="@string/second_stage_name"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/includedFirstStage" />
-
-                <include
-                    android:id="@+id/includedSecondStage"
-                    layout="@layout/stage_info_layout"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textSecondStage" />
-
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/buttonViewLaunch"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:background="@drawable/rounded_elem"
-                    android:paddingHorizontal="20dp"
-                    android:paddingVertical="20dp"
-                    android:text="Посмотреть запуски"
-                    android:textAlignment="center"
-                    android:textColor="#E4E4E4"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/includedSecondStage" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.appcompat.widget.LinearLayoutCompat>

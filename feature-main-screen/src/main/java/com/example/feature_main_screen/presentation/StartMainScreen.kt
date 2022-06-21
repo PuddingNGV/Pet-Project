@@ -2,6 +2,8 @@ package com.example.feature_main_screen.presentation
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.lifecycle.Observer
@@ -37,6 +39,7 @@ class StartMainScreen : AppCompatActivity() {
         createBottomSheet()
 
         vm.dataRocketPackLive.observe(this, Observer {
+            imageViewer(it.imageUlrList)
             binding.bottomSheetInclude.textRocketName.text = it.rocketName
             binding.bottomSheetInclude.includedHorizontal.textHeightVal.text = it.height.toString()
             binding.bottomSheetInclude.includedHorizontal.textDiameterVal.text =
@@ -49,21 +52,28 @@ class StartMainScreen : AppCompatActivity() {
             binding.bottomSheetInclude.textCostPerLaunchVal.text =
                 getString(R.string.cost_per_launch_val, ((it.costPerLaunch) / 1000000))
 
-            binding.bottomSheetInclude.includedFirstStage.textEnginesVal.text =
-                it.stageInfo[0].engines.toString()
-            binding.bottomSheetInclude.includedFirstStage.textFuelAmountTonsVal.text =
-                it.stageInfo[0].fuelAmountTons.toString()
-            binding.bottomSheetInclude.includedFirstStage.textBurnTimeSecVal.text =
-                it.stageInfo[0].burnTimeSec.toString()
+            fun addStageField(view: View, nextStage: Int) {
+                val stageLayoutInflater = layoutInflater.inflate(R.layout.stage_info_layout, null)
+                stageLayoutInflater.findViewById<TextView>(R.id.textStage).text = getString(
+                    R.string.stage_name,
+                    resources.getStringArray(R.array.number_stage)[nextStage]
+                )
+                stageLayoutInflater.findViewById<TextView>(R.id.textEnginesVal).text =
+                    it.stageInfo[nextStage].engines.toString()
+                stageLayoutInflater.findViewById<TextView>(R.id.textFuelAmountTonsVal).text =
+                    it.stageInfo[nextStage].fuelAmountTons.toString()
+                stageLayoutInflater.findViewById<TextView>(R.id.textBurnTimeSecVal).text =
+                    it.stageInfo[nextStage].burnTimeSec.toString()
 
-            binding.bottomSheetInclude.includedSecondStage.textEnginesVal.text =
-                it.stageInfo[1].engines.toString()
-            binding.bottomSheetInclude.includedSecondStage.textFuelAmountTonsVal.text =
-                it.stageInfo[1].fuelAmountTons.toString()
-            binding.bottomSheetInclude.includedSecondStage.textBurnTimeSecVal.text =
-                it.stageInfo[1].burnTimeSec.toString()
+                binding.bottomSheetInclude.linearLayout.addView(stageLayoutInflater)
+            }
 
-            imageViewer(it.imageUlrList)
+            for (nextStage in 0 until it.stageCount) {
+                addStageField(view, nextStage)
+            }
+
+            val buttonLayoutInflater = layoutInflater.inflate(R.layout.button_launch, null)
+            binding.bottomSheetInclude.linearLayout.addView(buttonLayoutInflater)
         })
     }
 

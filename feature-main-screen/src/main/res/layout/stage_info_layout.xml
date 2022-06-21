@@ -5,21 +5,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:showIn="@layout/coordinator_layout">
+    android:background="@color/colorAccent">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textStage"
+        style="@style/stage_name"
+        android:layout_marginTop="20dp"
+        android:text="@string/stage_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textEngines"
         style="@style/name_param"
         android:text="@string/engines_name"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textStage" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textEnginesVal"
         style="@style/val_param_include"
         android:text="@string/engines_val"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textStage" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textFuelAmountTons"

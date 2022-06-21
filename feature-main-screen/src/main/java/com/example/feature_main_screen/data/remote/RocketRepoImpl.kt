@@ -65,6 +65,7 @@ class RocketRepoImpl(private val context: Context) : RocketRepo {
             request.firstFlight,
             request.country,
             request.costPerLaunch,
+            request.stages,
             convertStage(request)
         )
         return dataRocket
