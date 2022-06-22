@@ -29,7 +29,12 @@ class RocketRepoImpl(private val context: Context) : RocketRepo {
         val requestParam =
             mapOf("height" to true, "diameter" to true, "mass" to true, "payload" to true)
 
-        response = requestApi()
+        val answerApiRockets = initialAPI.getRockets().body()
+        answerApiRockets.let {
+            if (answerApiRockets != null) {
+                response = answerApiRockets
+            }
+        }
         return dataProcessing(response[requestScreenId], requestParam)
     }
 
@@ -71,6 +76,8 @@ class RocketRepoImpl(private val context: Context) : RocketRepo {
         return dataRocket
     }
 
+
+    /*
     private suspend fun requestApi(): RocketResponse {
 
         val job = GlobalScope.async(Dispatchers.IO) {
@@ -79,15 +86,6 @@ class RocketRepoImpl(private val context: Context) : RocketRepo {
         }
         return job.await()
     }
-
-    /*
-        suspend fun request() {
-            var response = RocketResponse()
-            val job = GlobalScope.async(Dispatchers.IO) {
-                response = initialAPI.getRockets().body()!!
-                return@async response
-            }.join()
-        }
     */
     private fun convertStage(request: RocketResponseItem): List<StageInfo> {
         val stageData: List<Stage> = listOfNotNull(
