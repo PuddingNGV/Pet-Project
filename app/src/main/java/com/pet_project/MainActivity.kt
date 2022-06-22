@@ -1,24 +1,13 @@
 package com.pet_project
 
+import android.app.Application
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.feature_main_screen.presentation.StartMainScreen
+import dagger.hilt.android.HiltAndroidApp
 
-class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        startMainScreenActivity()
-    }
+@HiltAndroidApp
+class App : Application() {
 
-    override fun onStart() {
-        super.onStart()
-        startMainScreenActivity()
-    }
-
-    private fun startMainScreenActivity() {
-        startActivity(
-            Intent(this, StartMainScreen::class.java)
-        )
-    }
 }
