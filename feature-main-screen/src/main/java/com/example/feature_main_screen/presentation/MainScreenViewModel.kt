@@ -17,16 +17,16 @@ class MainScreenViewModel(private val getDataUseCase: GetDataUseCase) : ViewMode
     private var intImage = 0
 
     init {
-        getData()
+        viewModelScope.launch(Dispatchers.Main) {
+            getData()
+        }
     }
 
     private var dataRocketPackMutable = MutableLiveData<RocketInfo>()
     var dataRocketPackLive: LiveData<RocketInfo> = dataRocketPackMutable
 
-    private fun getData() {
-        viewModelScope.launch(Dispatchers.Main) {
+    private suspend fun getData() {
             dataRocketPackMutable.value = getDataUseCase.execute()
-        }
     }
 
     fun switchImage(imageList: List<String>): RequestCreator {
