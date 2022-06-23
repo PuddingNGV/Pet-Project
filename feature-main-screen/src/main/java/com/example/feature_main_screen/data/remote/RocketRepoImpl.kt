@@ -11,16 +11,9 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
 
+class RocketRepoImpl() : RocketRepo {
 
-private const val SHARED_PREFS_NAME = "shared_prefs"
-private const val KEY_ROCKET = "key_rocket"
-
-class RocketRepoImpl(private val context: Context) : RocketRepo {
-
-    private val sharedPreferences =
-        context.getSharedPreferences(SHARED_PREFS_NAME, Context.MODE_PRIVATE)
     private val initialAPI = ApiHelper(RetrofitBuilder.apiRockets)
-    var saveInfo: String = String()
     var response = RocketResponse()
 
 
@@ -107,10 +100,4 @@ class RocketRepoImpl(private val context: Context) : RocketRepo {
         }
         return mutableListStage
     }
-
-    override fun saveRocket() {
-        sharedPreferences.edit().putString(KEY_ROCKET, saveInfo).apply()
-    }
-
-
 }
