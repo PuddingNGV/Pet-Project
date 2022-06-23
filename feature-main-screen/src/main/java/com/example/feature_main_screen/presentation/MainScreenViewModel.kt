@@ -9,10 +9,13 @@ import com.example.feature_main_screen.domain.models.RocketInfo
 import com.example.feature_main_screen.domain.usecase.GetDataUseCase
 import com.squareup.picasso.Picasso
 import com.squareup.picasso.RequestCreator
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class MainScreenViewModel(private val getDataUseCase: GetDataUseCase) : ViewModel() {
+@HiltViewModel
+class MainScreenViewModel @Inject constructor(private val getDataUseCase: GetDataUseCase) : ViewModel() {
 
     private var intImage = 0
 
