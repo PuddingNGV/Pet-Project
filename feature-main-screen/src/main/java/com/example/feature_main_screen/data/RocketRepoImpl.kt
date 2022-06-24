@@ -1,28 +1,25 @@
-package com.example.feature_main_screen.data.remote
+package com.example.feature_main_screen.data
 
-import android.content.Context
+import com.example.feature_main_screen.data.remote.ApiRockets
 import com.example.feature_main_screen.data.remote.responce.RocketResponse
 import com.example.feature_main_screen.data.remote.responce.item.RocketResponseItem
 import com.example.feature_main_screen.data.remote.responce.item.stage.Stage
 import com.example.feature_main_screen.domain.models.RocketInfo
 import com.example.feature_main_screen.domain.models.StageInfo
 import com.example.feature_main_screen.domain.repository.RocketRepo
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.async
+import javax.inject.Singleton
 
-class RocketRepoImpl() : RocketRepo {
+@Singleton
+class RocketRepoImpl(private val apiRockets: ApiRockets) : RocketRepo {
 
-    private val initialAPI = ApiHelper(RetrofitBuilder.apiRockets)
-    var response = RocketResponse()
-
+    private var response = RocketResponse()
 
     override suspend fun getRocket(): RocketInfo {
         val requestScreenId = 2
         val requestParam =
             mapOf("height" to true, "diameter" to true, "mass" to true, "payload" to true)
 
-        val answerApiRockets = initialAPI.getRockets().body()
+        val answerApiRockets = requestApi().body()
         answerApiRockets.let {
             if (answerApiRockets != null) {
                 response = answerApiRockets
@@ -30,6 +27,8 @@ class RocketRepoImpl() : RocketRepo {
         }
         return dataProcessing(response[requestScreenId], requestParam)
     }
+
+    private suspend fun requestApi() = apiRockets.getRocketArrayList()
 
     private fun dataProcessing(
         request: RocketResponseItem,
@@ -69,17 +68,6 @@ class RocketRepoImpl() : RocketRepo {
         return dataRocket
     }
 
-
-    /*
-    private suspend fun requestApi(): RocketResponse {
-
-        val job = GlobalScope.async(Dispatchers.IO) {
-            val answer = initialAPI.getRockets().body()
-            answer.let { return@async answer!! }
-        }
-        return job.await()
-    }
-    */
     private fun convertStage(request: RocketResponseItem): List<StageInfo> {
         val stageData: List<Stage> = listOfNotNull(
             request.firstStage,
