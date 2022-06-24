@@ -1,22 +1,18 @@
 package com.example.feature_main_screen.presentation
 
-import android.content.Intent
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import com.example.feature_main_screen.R
 import com.example.feature_main_screen.databinding.ActivityMainScreenBinding
 import com.example.feature_main_screen.databinding.StageInfoLayoutBinding
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.squareup.picasso.Picasso
-import dagger.hilt.EntryPoint
 import dagger.hilt.android.AndroidEntryPoint
+
 
 @AndroidEntryPoint
 class StartMainScreen : AppCompatActivity() {
@@ -24,10 +20,7 @@ class StartMainScreen : AppCompatActivity() {
     private lateinit var binding: ActivityMainScreenBinding
     private lateinit var bindingStage: StageInfoLayoutBinding
 
-    //private val rocketRepo by lazy { RocketRepoImpl(applicationContext) }
-    //private val getDataUseCase by lazy { GetDataUseCase(rocketRepo) }
     private val vm: MainScreenViewModel by viewModels()
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,14 +28,6 @@ class StartMainScreen : AppCompatActivity() {
 
         binding = ActivityMainScreenBinding.inflate(layoutInflater)
         val view = binding.root
-        
-        /*
-        vm = ViewModelProvider(
-            this,
-            MainScreenViewModelFactory(this)
-        ).get(MainScreenViewModel::class.java)
-
-         */
 
         setContentView(view)
         createBottomSheet()
