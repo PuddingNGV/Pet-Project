@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 
 data class Stage(
     @SerializedName("burn_time_sec")
-    var burnTimeSec: Int,
+    val burnTimeSec: Int,
     @SerializedName("engines")
     val engines: Int,
     @SerializedName("fuel_amount_tons")
