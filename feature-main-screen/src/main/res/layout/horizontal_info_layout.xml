@@ -74,28 +74,28 @@
         android:layout_marginLeft="15dp">
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/imageWeight"
+            android:id="@+id/imageMass"
             style="@style/horizontal_rounded_elem"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/rounded_elem" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/textWeightVal"
+            android:id="@+id/textMassVal"
             style="@style/horizontal_param_val"
             android:text="@string/weight_val"
-            app:layout_constraintEnd_toEndOf="@+id/imageWeight"
-            app:layout_constraintStart_toStartOf="@+id/imageWeight"
-            app:layout_constraintTop_toTopOf="@+id/imageWeight" />
+            app:layout_constraintEnd_toEndOf="@+id/imageMass"
+            app:layout_constraintStart_toStartOf="@+id/imageMass"
+            app:layout_constraintTop_toTopOf="@+id/imageMass" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/textWeight"
+            android:id="@+id/textMass"
             style="@style/horizontal_param_text"
             android:text="@string/weight_name"
-            app:layout_constraintBottom_toBottomOf="@+id/imageWeight"
-            app:layout_constraintEnd_toEndOf="@+id/imageWeight"
-            app:layout_constraintStart_toStartOf="@+id/imageWeight"
-            app:layout_constraintTop_toBottomOf="@+id/textWeightVal" />
+            app:layout_constraintBottom_toBottomOf="@+id/imageMass"
+            app:layout_constraintEnd_toEndOf="@+id/imageMass"
+            app:layout_constraintStart_toStartOf="@+id/imageMass"
+            app:layout_constraintTop_toBottomOf="@+id/textMassVal" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
