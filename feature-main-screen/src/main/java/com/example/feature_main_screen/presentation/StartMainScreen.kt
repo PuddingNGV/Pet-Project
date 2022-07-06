@@ -38,7 +38,7 @@ class StartMainScreen : AppCompatActivity() {
             binding.bottomSheetInclude.includedHorizontal.textHeightVal.text = it.height.toString()
             binding.bottomSheetInclude.includedHorizontal.textDiameterVal.text =
                 it.diameter.toString()
-            binding.bottomSheetInclude.includedHorizontal.textWeightVal.text = it.weight.toString()
+            binding.bottomSheetInclude.includedHorizontal.textMassVal.text = it.mass.toString()
             binding.bottomSheetInclude.includedHorizontal.textPayloadVal.text =
                 it.payload.toString()
             binding.bottomSheetInclude.textFirstFlightVal.text = it.firstFlight
