@@ -4,7 +4,7 @@ class RocketInfo(
     val rocketName: String,
     val height: Double,
     val diameter: Double,
-    val weight: Int,
+    val mass: Int,
     val payload: Int,
     val imageUlrList: List<String>,
     val firstFlight: String,
