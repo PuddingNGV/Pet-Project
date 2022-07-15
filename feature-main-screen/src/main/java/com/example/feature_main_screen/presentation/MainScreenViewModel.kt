@@ -1,10 +1,7 @@
 package com.example.feature_main_screen.presentation
 
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.example.feature_main_screen.domain.models.RocketInfo
 import com.example.feature_main_screen.domain.usecase.GetDataUseCase
 import com.squareup.picasso.Picasso
@@ -13,24 +10,37 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+import com.example.feature_main_screen.until.Resource
+import com.example.feature_main_screen.data.RocketRepoImpl
+import com.example.feature_main_screen.data.local.entity.RocketDbEntity
 
 @HiltViewModel
 class MainScreenViewModel @Inject constructor(private val getDataUseCase: GetDataUseCase) : ViewModel() {
 
     private var intImage = 0
 
-    init {
-        viewModelScope.launch(Dispatchers.Main) {
-            getData()
+    /*
+        init {
+            viewModelScope.launch(Dispatchers.Main) {
+                getData2()
+            }
         }
-    }
 
-    private var dataRocketPackMutable = MutableLiveData<RocketInfo>()
-    var dataRocketPackLive: LiveData<RocketInfo> = dataRocketPackMutable
+            private var dataRocketPackMutable = MutableLiveData<RocketInfo>()
+            var dataRocketPackLive: LiveData<RocketInfo> = dataRocketPackMutable
+            // dataRocketPackLive = dataRocketPackMutable
 
-    private suspend fun getData() {
-            dataRocketPackMutable.value = getDataUseCase.execute()
+            private suspend fun getData() {
+                    dataRocketPackMutable.value = getDataUseCase.executeRemote()
+                    //dataRocketPackMutable.value = getDataUseCase.executeLocal().asLiveData()
+            }
+val rocket = liveData<Resource<List<RocketDbEntity>>>{
+        getDataUseCase.executeLocal().asLiveData()
     }
+         */
+    val rocket = getDataUseCase.executeLocal().asLiveData()
+
+
 
     fun switchImage(imageList: List<String>): RequestCreator {
 

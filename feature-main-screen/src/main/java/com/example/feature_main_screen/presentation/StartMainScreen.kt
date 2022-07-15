@@ -1,11 +1,13 @@
 package com.example.feature_main_screen.presentation
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.feature_main_screen.R
 import com.example.feature_main_screen.databinding.ActivityMainScreenBinding
 import com.example.feature_main_screen.databinding.StageInfoLayoutBinding
@@ -31,8 +33,11 @@ class StartMainScreen : AppCompatActivity() {
 
         setContentView(view)
         createBottomSheet()
+/*
+        vm.rocket.observe(this) {
+            Log.d("AAAA", "${it.data} размер данных дошедших до вью")
+            binding.bottomSheetInclude.textRocketName.text = it.data?.get(0)?.company
 
-        vm.dataRocketPackLive.observe(this, Observer {
             imageViewer(it.imageUlrList)
             binding.bottomSheetInclude.textRocketName.text = it.rocketName
             binding.bottomSheetInclude.includedHorizontal.textHeightVal.text = it.height.toString()
@@ -64,7 +69,22 @@ class StartMainScreen : AppCompatActivity() {
             }
             val buttonLayoutInflater = layoutInflater.inflate(R.layout.button_launch, null)
             binding.bottomSheetInclude.linearLayout.addView(buttonLayoutInflater)
-        })
+
+
+
+        }
+
+ */
+
+            vm.rocket.observe(this@StartMainScreen) { it ->
+                //Log.d("AAAA", "${it.data}")
+                if (!it.data.isNullOrEmpty()){
+                    binding.bottomSheetInclude.textRocketName.text = it.data[2].name
+                    imageViewer(it.data[2].flickrImage)
+
+                }
+            }
+
     }
 
     private fun createBottomSheet() {
