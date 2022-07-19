@@ -13,7 +13,7 @@ import com.example.feature_main_screen.data.local.AppRocketDataBase
 
 @Module
 @InstallIn(SingletonComponent::class)
-class ProductionModule {
+object DatabaseModule {
 
     @Singleton
     @Provides

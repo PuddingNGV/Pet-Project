@@ -1,6 +1,5 @@
 package com.example.feature_main_screen.di
 
-import androidx.room.RoomDatabase
 import com.example.feature_main_screen.data.remote.ApiRockets
 import com.example.feature_main_screen.data.RocketRepoImpl
 import com.example.feature_main_screen.data.local.AppRocketDataBase
@@ -13,7 +12,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-class DataModule {
+object DataModule {
     @Provides
     @Singleton
     fun provideRocketRepo(apiRockets: ApiRockets, appRocketDataBase: AppRocketDataBase): RocketRepo {
