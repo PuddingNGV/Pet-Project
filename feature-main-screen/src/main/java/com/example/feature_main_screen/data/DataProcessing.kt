@@ -1,11 +1,20 @@
 package com.example.feature_main_screen.data
 
+import com.example.feature_main_screen.data.local.entity.RocketDbEntity
 import com.example.feature_main_screen.data.remote.responce.item.RocketResponseItem
 import com.example.feature_main_screen.data.remote.responce.item.stage.Stage
 import com.example.feature_main_screen.domain.models.RocketInfo
 import com.example.feature_main_screen.domain.models.StageInfo
 
 class DataProcessing {
+
+    fun toLocalListRocketDbEntity(rocketResponseList: List<RocketResponseItem>): List<RocketDbEntity> {
+        val mEntityList = mutableListOf<RocketDbEntity>()
+        for (i in rocketResponseList.indices){
+            mEntityList.add(rocketResponseList[i].toRocketDbEntity())
+        }
+        return java.util.List.copyOf(mEntityList)
+    }
 
    fun rocketProcessing(
         request: RocketResponseItem,
