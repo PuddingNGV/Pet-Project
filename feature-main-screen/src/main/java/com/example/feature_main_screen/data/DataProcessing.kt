@@ -5,9 +5,10 @@ import com.example.feature_main_screen.data.remote.responce.item.RocketResponseI
 import com.example.feature_main_screen.data.remote.responce.item.stage.Stage
 import com.example.feature_main_screen.domain.models.RocketInfo
 import com.example.feature_main_screen.domain.models.StageInfo
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 
 class DataProcessing {
-
     fun toLocalListRocketDbEntity(rocketResponseList: List<RocketResponseItem>): List<RocketDbEntity> {
         val mEntityList = mutableListOf<RocketDbEntity>()
         for (i in rocketResponseList.indices){
@@ -15,8 +16,20 @@ class DataProcessing {
         }
         return java.util.List.copyOf(mEntityList)
     }
-
-   fun rocketProcessing(
+    fun toRocketInfo(listFlow: Flow<List<RocketDbEntity>>): Flow<List<RocketInfo>> {
+        val rocketInfoList: Flow<List<RocketInfo>> = listFlow.map { list ->
+            list.map { value ->
+                value.toRocketInfo(true,true,true,true)
+            }
+        }
+        return rocketInfoList
+    }
+    private fun toRocketInfoDeprecated(rocketDbEntity: List<RocketDbEntity>): List<RocketInfo> {
+        val mEntityList = mutableListOf<RocketInfo>()
+        rocketDbEntity.forEach{ value -> mEntityList.add(value.toRocketInfo(true,true,true,true))}
+        return java.util.List.copyOf(mEntityList)
+    }
+    fun rocketProcessing(
         request: RocketResponseItem,
         param: Map<String, Boolean>
     ): RocketInfo {
