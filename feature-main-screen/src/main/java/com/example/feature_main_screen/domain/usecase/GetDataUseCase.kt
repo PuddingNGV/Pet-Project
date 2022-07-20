@@ -17,7 +17,7 @@ class GetDataUseCase(private val rocketRepo: RocketRepo) {
         }
     }
 
-    fun executeLocal(): Flow<Resource<List<RocketDbEntity>>> {
+    fun executeLocal(): Flow<Resource<List<RocketInfo>>> {
         return rocketRepo.getLocalRocket()
 
     }

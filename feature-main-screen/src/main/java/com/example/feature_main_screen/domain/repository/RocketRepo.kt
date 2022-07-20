@@ -8,5 +8,5 @@ import com.example.feature_main_screen.until.Resource
 interface RocketRepo {
 
     suspend fun getRemoteRocket(): RocketInfo
-    fun getLocalRocket(): Flow<Resource<List<RocketDbEntity>>>
+    fun getLocalRocket(): Flow<Resource<List<RocketInfo>>>
 }
