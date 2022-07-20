@@ -2,6 +2,7 @@ package com.example.feature_main_screen.data
 
 import androidx.room.withTransaction
 import com.example.feature_main_screen.data.local.AppRocketDataBase
+import com.example.feature_main_screen.data.local.entity.RocketDbEntity
 import com.example.feature_main_screen.data.remote.ApiRockets
 import com.example.feature_main_screen.data.remote.responce.item.RocketResponseItem
 import com.example.feature_main_screen.domain.models.RocketInfo
@@ -9,6 +10,10 @@ import com.example.feature_main_screen.domain.repository.RocketRepo
 import kotlinx.coroutines.delay
 import javax.inject.Singleton
 import com.example.feature_main_screen.until.networkBoundResource
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.asFlow
+import kotlinx.coroutines.flow.map
+import java.util.List.copyOf
 
 @Singleton
 class RocketRepoImpl(private val apiRockets: ApiRockets, private val appRocketDataBase: AppRocketDataBase) : RocketRepo {
@@ -35,9 +40,10 @@ class RocketRepoImpl(private val apiRockets: ApiRockets, private val appRocketDa
         return response
     }
 
+
     override fun getLocalRocket() = networkBoundResource(
             query = {
-                rocketDao.getAll()
+                DataProcessing().toRocketInfo(rocketDao.getAll())
                     },
             fetch = {
                 delay(2000)

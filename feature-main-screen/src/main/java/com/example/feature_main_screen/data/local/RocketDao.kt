@@ -4,6 +4,7 @@ import androidx.room.*
 import androidx.room.OnConflictStrategy
 import com.example.feature_main_screen.data.local.entity.*
 import kotlinx.coroutines.flow.Flow
+import com.example.feature_main_screen.domain.models.RocketInfo
 
 @Dao
 interface RocketDao {
@@ -16,7 +17,12 @@ interface RocketDao {
 
     @Query("DELETE FROM rockets")
     suspend fun deleteAll()
+
 /*
+    @Query
+    ("SELECT * FROM rockets WHERE id = :id")
+    suspend fun getRocketInfo(id: String): List<RocketInfo>
+
     @Transaction
     @Query("SELECT * FROM rockets WHERE id = :id")
     suspend fun getStageList(id: String): List<RocketWithStage>
