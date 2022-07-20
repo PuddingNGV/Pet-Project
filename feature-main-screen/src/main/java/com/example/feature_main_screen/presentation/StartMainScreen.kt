@@ -33,54 +33,42 @@ class StartMainScreen : AppCompatActivity() {
 
         setContentView(view)
         createBottomSheet()
-/*
-        vm.rocket.observe(this) {
-            Log.d("AAAA", "${it.data} размер данных дошедших до вью")
-            binding.bottomSheetInclude.textRocketName.text = it.data?.get(0)?.company
-
-            imageViewer(it.imageUlrList)
-            binding.bottomSheetInclude.textRocketName.text = it.rocketName
-            binding.bottomSheetInclude.includedHorizontal.textHeightVal.text = it.height.toString()
-            binding.bottomSheetInclude.includedHorizontal.textDiameterVal.text =
-                it.diameter.toString()
-            binding.bottomSheetInclude.includedHorizontal.textMassVal.text = it.mass.toString()
-            binding.bottomSheetInclude.includedHorizontal.textPayloadVal.text =
-                it.payload.toString()
-            binding.bottomSheetInclude.textFirstFlightVal.text = it.firstFlight
-            binding.bottomSheetInclude.textCountryVal.text = it.country
-            binding.bottomSheetInclude.textCostPerLaunchVal.text =
-                getString(R.string.cost_per_launch_val, ((it.costPerLaunch) / 1000000))
-
-            fun addStageField(view: View, nextStage: Int) {
-                bindingStage = StageInfoLayoutBinding.bind(view)
-                bindingStage.textStage.text = getString(
-                    R.string.stage_name,
-                    resources.getStringArray(R.array.number_stage)[nextStage]
-                )
-                bindingStage.textEnginesVal.text = it.stageInfo[nextStage].engines.toString()
-                bindingStage.textFuelAmountTonsVal.text = it.stageInfo[nextStage].fuelAmountTons.toString()
-                bindingStage.textBurnTimeSecVal.text = it.stageInfo[nextStage].burnTimeSec.toString()
-                binding.bottomSheetInclude.linearLayout.addView(view)
-            }
-
-            for (nextStage in 0 until it.stageCount) {
-                val stageLayoutInflater = layoutInflater.inflate(R.layout.stage_info_layout, null, false)
-                addStageField(stageLayoutInflater, nextStage)
-            }
-            val buttonLayoutInflater = layoutInflater.inflate(R.layout.button_launch, null)
-            binding.bottomSheetInclude.linearLayout.addView(buttonLayoutInflater)
-
-
-
-        }
-
- */
 
             vm.rocket.observe(this@StartMainScreen) { it ->
-                //Log.d("AAAA", "${it.data}")
-                if (!it.data.isNullOrEmpty()){
-                    binding.bottomSheetInclude.textRocketName.text = it.data[2].name
-                    imageViewer(it.data[2].flickrImage)
+                if (!it.data.isNullOrEmpty()) {
+                    val dataRocket = it.data[3]
+
+                    imageViewer(dataRocket.imageUlrList)
+                    binding.bottomSheetInclude.textRocketName.text = dataRocket.rocketName
+                    binding.bottomSheetInclude.includedHorizontal.textHeightVal.text = dataRocket.height.toString()
+                    binding.bottomSheetInclude.includedHorizontal.textDiameterVal.text =
+                        dataRocket.diameter.toString()
+                    binding.bottomSheetInclude.includedHorizontal.textMassVal.text = dataRocket.mass.toString()
+                    binding.bottomSheetInclude.includedHorizontal.textPayloadVal.text =
+                        dataRocket.payload.toString()
+                    binding.bottomSheetInclude.textFirstFlightVal.text = dataRocket.firstFlight
+                    binding.bottomSheetInclude.textCountryVal.text = dataRocket.country
+                    binding.bottomSheetInclude.textCostPerLaunchVal.text =
+                        getString(R.string.cost_per_launch_val, ((dataRocket.costPerLaunch) / 1000000))
+
+                    fun addStageField(view: View, nextStage: Int) {
+                        bindingStage = StageInfoLayoutBinding.bind(view)
+                        bindingStage.textStage.text = getString(
+                            R.string.stage_name,
+                            resources.getStringArray(R.array.number_stage)[nextStage]
+                        )
+                        bindingStage.textEnginesVal.text = dataRocket.stageInfo[nextStage].engines.toString()
+                        bindingStage.textFuelAmountTonsVal.text = dataRocket.stageInfo[nextStage].fuelAmountTons.toString()
+                        bindingStage.textBurnTimeSecVal.text = dataRocket.stageInfo[nextStage].burnTimeSec.toString()
+                        binding.bottomSheetInclude.linearLayout.addView(view)
+                    }
+
+                    for (nextStage in 0 until dataRocket.stageCount) {
+                        val stageLayoutInflater = layoutInflater.inflate(R.layout.stage_info_layout, null, false)
+                        addStageField(stageLayoutInflater, nextStage)
+                    }
+                    val buttonLayoutInflater = layoutInflater.inflate(R.layout.button_launch, null)
+                    binding.bottomSheetInclude.linearLayout.addView(buttonLayoutInflater)
 
                 }
             }
