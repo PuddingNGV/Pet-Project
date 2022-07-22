@@ -48,8 +48,7 @@ class StartMainScreen : AppCompatActivity() {
                     binding.bottomSheetInclude.textCountryVal.text = dataRocket.country
                     binding.bottomSheetInclude.textCostPerLaunchVal.text =
                         getString(R.string.cost_per_launch_val, ((dataRocket.costPerLaunch) / 1000000))
-
-                    binding.bottomSheetInclude.linearLayoutStage.removeAllViews()
+                    binding.bottomSheetInclude.linearLayoutStageInfo.removeAllViews()
                     addStageInfoField(dataRocket)
                 }
             }
@@ -62,7 +61,7 @@ class StartMainScreen : AppCompatActivity() {
             updateInfoStageField(stageLayoutInflater, nextStage, dataRocket)
         }
         val buttonLayoutInflater = layoutInflater.inflate(R.layout.button_launch, null)
-        binding.bottomSheetInclude.linearLayoutStage.addView(buttonLayoutInflater)
+        binding.bottomSheetInclude.linearLayoutStageInfo.addView(buttonLayoutInflater)
     }
 
     private fun updateInfoStageField(view: View, nextStage: Int, dataRocket: RocketInfo) {
@@ -74,7 +73,7 @@ class StartMainScreen : AppCompatActivity() {
         bindingStage.textEnginesVal.text = dataRocket.stageInfo[nextStage].engines.toString()
         bindingStage.textFuelAmountTonsVal.text = dataRocket.stageInfo[nextStage].fuelAmountTons.toString()
         bindingStage.textBurnTimeSecVal.text = dataRocket.stageInfo[nextStage].burnTimeSec.toString()
-        binding.bottomSheetInclude.linearLayoutStage.addView(view, nextStage)
+        binding.bottomSheetInclude.linearLayoutStageInfo.addView(view, nextStage)
     }
 
     private fun createBottomSheet() {

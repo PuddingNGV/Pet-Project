@@ -65,7 +65,7 @@
         app:layout_constraintVertical_bias="1.0">
 
         <androidx.appcompat.widget.LinearLayoutCompat
-            android:id="@+id/linearLayout"
+            android:id="@+id/linearLayoutRocketInfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -124,7 +124,7 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <LinearLayout
-                android:id="@+id/linearLayoutStage"
+                android:id="@+id/linearLayoutStageInfo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"/>
