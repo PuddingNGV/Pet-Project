@@ -1,19 +1,17 @@
 package com.example.feature_main_screen.presentation
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.lifecycle.Observer
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.feature_main_screen.R
 import com.example.feature_main_screen.databinding.ActivityMainScreenBinding
 import com.example.feature_main_screen.databinding.StageInfoLayoutBinding
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.squareup.picasso.Picasso
 import dagger.hilt.android.AndroidEntryPoint
+import com.example.feature_main_screen.domain.models.RocketInfo
 
 
 @AndroidEntryPoint
@@ -51,28 +49,32 @@ class StartMainScreen : AppCompatActivity() {
                     binding.bottomSheetInclude.textCostPerLaunchVal.text =
                         getString(R.string.cost_per_launch_val, ((dataRocket.costPerLaunch) / 1000000))
 
-                    fun addStageField(view: View, nextStage: Int) {
-                        bindingStage = StageInfoLayoutBinding.bind(view)
-                        bindingStage.textStage.text = getString(
-                            R.string.stage_name,
-                            resources.getStringArray(R.array.number_stage)[nextStage]
-                        )
-                        bindingStage.textEnginesVal.text = dataRocket.stageInfo[nextStage].engines.toString()
-                        bindingStage.textFuelAmountTonsVal.text = dataRocket.stageInfo[nextStage].fuelAmountTons.toString()
-                        bindingStage.textBurnTimeSecVal.text = dataRocket.stageInfo[nextStage].burnTimeSec.toString()
-                        binding.bottomSheetInclude.linearLayout.addView(view)
-                    }
-
-                    for (nextStage in 0 until dataRocket.stageCount) {
-                        val stageLayoutInflater = layoutInflater.inflate(R.layout.stage_info_layout, null, false)
-                        addStageField(stageLayoutInflater, nextStage)
-                    }
-                    val buttonLayoutInflater = layoutInflater.inflate(R.layout.button_launch, null)
-                    binding.bottomSheetInclude.linearLayout.addView(buttonLayoutInflater)
-
+                    binding.bottomSheetInclude.linearLayout.removeAllViews()
+                    addStageInfoField(dataRocket)
                 }
             }
 
+    }
+
+    private fun addStageInfoField(dataRocket: RocketInfo) {
+        for (nextStage in 0 until dataRocket.stageCount) {
+            val stageLayoutInflater = layoutInflater.inflate(R.layout.stage_info_layout, null, false)
+            updateInfoStageField(stageLayoutInflater, nextStage, dataRocket)
+        }
+        val buttonLayoutInflater = layoutInflater.inflate(R.layout.button_launch, null)
+        binding.bottomSheetInclude.linearLayout.addView(buttonLayoutInflater)
+    }
+
+    private fun updateInfoStageField(view: View, nextStage: Int, dataRocket: RocketInfo) {
+        bindingStage = StageInfoLayoutBinding.bind(view)
+        bindingStage.textStage.text = getString(
+            R.string.stage_name,
+            resources.getStringArray(R.array.number_stage)[nextStage]
+        )
+        bindingStage.textEnginesVal.text = dataRocket.stageInfo[nextStage].engines.toString()
+        bindingStage.textFuelAmountTonsVal.text = dataRocket.stageInfo[nextStage].fuelAmountTons.toString()
+        bindingStage.textBurnTimeSecVal.text = dataRocket.stageInfo[nextStage].burnTimeSec.toString()
+        binding.bottomSheetInclude.linearLayout.addView(view, nextStage)
     }
 
     private fun createBottomSheet() {
