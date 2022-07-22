@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorAccent">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textStage"
+        style="@style/stage_name"
+        android:layout_marginTop="20dp"
+        android:text="@string/stage_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textEngines"
+        style="@style/name_param"
+        android:text="@string/engines_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textStage" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textEnginesVal"
+        style="@style/val_param_include"
+        android:text="@string/engines_val"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textStage" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textFuelAmountTons"
+        style="@style/name_param"
+        android:text="@string/fuel_amount_tons_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textEngines" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textFuelAmountTonsVal"
+        style="@style/val_param_include"
+        android:text="@string/fuel_amount_tons_val"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textEnginesVal" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textFuelAmountTonsValType"
+        style="@style/val_param_type"
+        android:text="@string/ton"
+        app:layout_constraintStart_toEndOf="@+id/textFuelAmountTonsVal"
+        app:layout_constraintTop_toBottomOf="@+id/textEnginesVal" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textBurnTimeSec"
+        style="@style/name_param"
+        android:text="@string/burn_time_sec_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textFuelAmountTons" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textBurnTimeSecVal"
+        style="@style/val_param_include"
+        android:text="@string/burn_time_sec_val"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textFuelAmountTonsVal" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textBurnTimeSecValType"
+        style="@style/val_param_type"
+        android:text="@string/sec"
+        app:layout_constraintStart_toEndOf="@+id/textBurnTimeSecVal"
+        app:layout_constraintTop_toBottomOf="@+id/textFuelAmountTonsVal" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

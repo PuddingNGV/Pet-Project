@@ -1,0 +1,37 @@
+<resources>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="rocket_name">Rocket name</string>
+    <string name="height_name">Высота, ft</string>
+    <string name="height_val">-</string>
+    <string name="diameter_name">Диаметр, lt</string>
+    <string name="diameter_val">-</string>
+    <string name="weight_name">Масса, ft</string>
+    <string name="weight_val">-</string>
+    <string name="payload_name">Нагрузка, leo</string>
+    <string name="payload_val">-</string>
+    <string name="first_flight_name">Первый запуск</string>
+    <string name="first_flight_val">-</string>
+    <string name="country_name">Страна</string>
+    <string name="country_val">-</string>
+    <string name="cost_per_launch_name">Стоимость запуска</string>
+    <string name="cost_per_launch_val">$%1$d млн</string>
+    <string name="stage_name">%1$s ступень</string>
+    <string name="engines_name">Количество двигателей</string>
+    <string name="engines_val">-</string>
+    <string name="fuel_amount_tons_name">Количество топлива</string>
+    <string name="fuel_amount_tons_val">-</string>
+    <string name="burn_time_sec_name">Время сгорания</string>
+    <string name="burn_time_sec_val">-</string>
+    <string name="ton">ton</string>
+    <string name="sec">sec</string>
+    <string name="text_launch_button">Посмотреть запуски</string>
+
+    <string-array name="number_stage">
+        <item>Первая</item>
+        <item>Вторая</item>
+        <item>Третья</item>
+        <item>Четвертая</item>
+        <item>Пятая</item>
+        <item>Шестая</item>
+    </string-array>
+</resources>
