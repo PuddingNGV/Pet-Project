@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="name_param">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">28dp</item>
+        <item name="android:textColor">#F6F6F6</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@font/labgrotesque_regular</item>
+    </style>
+
+    <style name="radio_group">
+        <item name="android:layout_width">115dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">24dp</item>
+        <item name="android:layout_marginEnd">28dp</item>
+        <item name="android:background">@drawable/control_switch_background_border</item>
+        <item name="android:checkedButton">@+id/mHeight</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="radio_button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">34dp</item>
+        <item name="android:layout_marginStart">3dp</item>
+        <item name="android:layout_marginTop">3dp</item>
+        <item name="android:layout_marginBottom">3dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@drawable/control_switch_background_selector</item>
+        <item name="android:button">@null</item>
+        <item name="android:fontFamily">@font/sf_pro_display_semibold</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/control_switch_color_selector</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+
+</resources>
