@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#121212"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SettingsActivity">
+
+    <TextView
+        android:id="@+id/textViewHeight"
+        style="@style/name_param"
+        android:text="@string/height"
+        app:layout_constraintBottom_toBottomOf="@+id/toggleHeight"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/toggleHeight" />
+
+    <RadioGroup
+        android:id="@+id/toggleHeight"
+        android:layout_marginTop="64dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/radio_group">
+
+        <RadioButton
+            android:id="@+id/mHeight"
+            style="@style/radio_button"
+            android:checked="true"
+            android:text="@string/m"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <RadioButton
+            android:id="@+id/ftHeight"
+            style="@style/radio_button"
+            android:text="@string/ft"
+            tools:ignore="TouchTargetSizeCheck" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/textViewDiameter"
+        android:text="@string/diameter"
+        app:layout_constraintBottom_toBottomOf="@+id/toggleDiameter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/toggleDiameter"
+        style="@style/name_param" />
+
+    <RadioGroup
+        android:id="@+id/toggleDiameter"
+        style="@style/radio_group"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toggleHeight">
+
+        <RadioButton
+            android:id="@+id/mDiameter"
+            style="@style/radio_button"
+            android:checked="true"
+            android:text="@string/m"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <RadioButton
+            android:id="@+id/ftDiameter"
+            style="@style/radio_button"
+            android:text="@string/ft"
+            tools:ignore="TouchTargetSizeCheck" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/textViewMass"
+        style="@style/name_param"
+        android:text="@string/mass"
+        app:layout_constraintBottom_toBottomOf="@+id/toggleMass"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/toggleMass" />
+
+    <RadioGroup
+        android:id="@+id/toggleMass"
+        style="@style/radio_group"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toggleDiameter">
+
+        <RadioButton
+            android:id="@+id/kgMass"
+            style="@style/radio_button"
+            android:checked="true"
+            android:text="@string/kg"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <RadioButton
+            android:id="@+id/lbMass"
+            style="@style/radio_button"
+            android:text="@string/lb"
+            tools:ignore="TouchTargetSizeCheck" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/textViewPayload"
+        style="@style/name_param"
+        android:text="@string/payload"
+        app:layout_constraintBottom_toBottomOf="@+id/togglePayload"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/togglePayload" />
+
+    <RadioGroup
+        android:id="@+id/togglePayload"
+        style="@style/radio_group"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toggleMass">
+
+        <RadioButton
+            android:id="@+id/kgPayload"
+            style="@style/radio_button"
+            android:checked="true"
+            android:text="@string/kg"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <RadioButton
+            android:id="@+id/lbPayload"
+            style="@style/radio_button"
+            android:text="@string/lb" />
+    </RadioGroup>
+</androidx.constraintlayout.widget.ConstraintLayout>
