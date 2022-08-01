@@ -1,0 +1,10 @@
+<resources>
+    <string name="height">Высота</string>
+    <string name="m">m</string>
+    <string name="ft">ft</string>
+    <string name="diameter">Диаметр</string>
+    <string name="mass">Масса</string>
+    <string name="kg">kg</string>
+    <string name="lb">lb</string>
+    <string name="payload">Полезная нагрузка</string>
+</resources>
