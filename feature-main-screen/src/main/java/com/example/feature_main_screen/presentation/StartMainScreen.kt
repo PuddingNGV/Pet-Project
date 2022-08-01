@@ -1,5 +1,6 @@
 package com.example.feature_main_screen.presentation
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
@@ -8,10 +9,11 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.feature_main_screen.R
 import com.example.feature_main_screen.databinding.ActivityMainScreenBinding
 import com.example.feature_main_screen.databinding.StageInfoLayoutBinding
+import com.example.feature_main_screen.domain.models.RocketInfo
 import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.example.feature_settings_screen.*
 import com.squareup.picasso.Picasso
 import dagger.hilt.android.AndroidEntryPoint
-import com.example.feature_main_screen.domain.models.RocketInfo
 
 
 @AndroidEntryPoint
@@ -31,6 +33,12 @@ class StartMainScreen : AppCompatActivity() {
 
         setContentView(view)
         createBottomSheet()
+
+        binding.bottomSheetInclude.imageButton.setOnClickListener {
+            startActivity(
+                Intent(this, SettingsActivity::class.java)
+            )
+        }
 
             vm.rocket.observe(this@StartMainScreen) { it ->
                 if (!it.data.isNullOrEmpty()) {
@@ -91,4 +99,5 @@ class StartMainScreen : AppCompatActivity() {
             vm.switchImage(imageList).into(binding.imageRocket)
         }
     }
+
 }
