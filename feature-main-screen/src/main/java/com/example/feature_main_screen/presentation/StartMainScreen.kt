@@ -1,6 +1,6 @@
 package com.example.feature_main_screen.presentation
 
-import android.content.Intent
+import com.example.feature_settings_screen.presentation.SettingsDialogFragment
 import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
@@ -35,9 +35,8 @@ class StartMainScreen : AppCompatActivity() {
         createBottomSheet()
 
         binding.bottomSheetInclude.imageButton.setOnClickListener {
-            startActivity(
-                Intent(this, SettingsActivity::class.java)
-            )
+            val dialog = SettingsDialogFragment()
+            dialog.show(supportFragmentManager, "settingsDialog")
         }
 
             vm.rocket.observe(this@StartMainScreen) { it ->
