@@ -2,10 +2,35 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="#121212"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#121212"
     tools:context=".SettingsActivity">
+
+
+    <TextView
+        android:id="@+id/textViewHeader"
+        style="@style/name_param"
+        android:layout_width="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="center"
+        android:text="Настройки"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewClose"
+        style="@style/close_button"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="24dp"
+        android:text="Закрыть"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textViewHeight"
@@ -17,10 +42,10 @@
 
     <RadioGroup
         android:id="@+id/toggleHeight"
-        android:layout_marginTop="64dp"
+        style="@style/radio_group"
+        android:layout_marginTop="72dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        style="@style/radio_group">
+        app:layout_constraintTop_toBottomOf="@+id/textViewClose">
 
         <RadioButton
             android:id="@+id/mHeight"
@@ -38,11 +63,11 @@
 
     <TextView
         android:id="@+id/textViewDiameter"
+        style="@style/name_param"
         android:text="@string/diameter"
         app:layout_constraintBottom_toBottomOf="@+id/toggleDiameter"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/toggleDiameter"
-        style="@style/name_param" />
+        app:layout_constraintTop_toTopOf="@+id/toggleDiameter" />
 
     <RadioGroup
         android:id="@+id/toggleDiameter"
@@ -104,6 +129,8 @@
     <RadioGroup
         android:id="@+id/togglePayload"
         style="@style/radio_group"
+        android:layout_marginBottom="64dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toggleMass">
 
