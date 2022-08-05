@@ -5,6 +5,8 @@ import javax.inject.Singleton
 import com.example.feature_settings_screen.domain.repository.SettingsRepo
 import com.example.feature_settings_screen.domain.models.SettingsParam
 import dagger.hilt.android.qualifiers.ApplicationContext
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flowOf
 
 private const val SHARED_PREFS_SETTINGS = "shared_prefs_settings"
 private const val KEY_HEIGHT_PARAM = "height_param_settings"
@@ -22,12 +24,14 @@ class SettingsRepoImpl(@ApplicationContext private val context: Context) : Setti
         sharedPreferences.edit().putBoolean(KEY_DIAMETER_PARAM, settingsParam.diameterParam).apply()
         sharedPreferences.edit().putBoolean(KEY_MASS_PARAM, settingsParam.massParam).apply()
         sharedPreferences.edit().putBoolean(KEY_PAYLOAD_PARAM, settingsParam.payloadParam).apply()
+
     }
 
-    override fun getSettings() = SettingsParam(
+    override fun getSettings(): Flow<SettingsParam> = flowOf(SettingsParam(
             heightParam = sharedPreferences.getBoolean(KEY_HEIGHT_PARAM, false),
             diameterParam = sharedPreferences.getBoolean(KEY_DIAMETER_PARAM, false),
             massParam = sharedPreferences.getBoolean(KEY_MASS_PARAM, false),
             payloadParam = sharedPreferences.getBoolean(KEY_PAYLOAD_PARAM, false)
         )
+    )
 }
