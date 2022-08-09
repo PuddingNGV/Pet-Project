@@ -1,13 +1,17 @@
 <resources>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="rocket_name">Rocket name</string>
-    <string name="height_name">Высота, ft</string>
+    <string name="height_name">Высота, %1$s</string>
+
     <string name="height_val">-</string>
-    <string name="diameter_name">Диаметр, lt</string>
+    <string name="diameter_name">Диаметр, %1$s</string>
+
     <string name="diameter_val">-</string>
-    <string name="weight_name">Масса, ft</string>
-    <string name="weight_val">-</string>
-    <string name="payload_name">Нагрузка, leo</string>
+    <string name="mass_name">Масса, %1$s</string>
+
+    <string name="mass_val">-</string>
+    <string name="payload_name">Нагрузка, %1$s</string>
+
     <string name="payload_val">-</string>
     <string name="first_flight_name">Первый запуск</string>
     <string name="first_flight_val">-</string>
@@ -25,6 +29,11 @@
     <string name="ton">ton</string>
     <string name="sec">sec</string>
     <string name="text_launch_button">Посмотреть запуски</string>
+
+    <string name="m">m</string>
+    <string name="ft">ft</string>
+    <string name="kg">kg</string>
+    <string name="lb">lb</string>
 
     <string-array name="number_stage">
         <item>Первая</item>

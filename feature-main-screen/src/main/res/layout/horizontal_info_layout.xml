@@ -83,7 +83,7 @@
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textMassVal"
             style="@style/horizontal_param_val"
-            android:text="@string/weight_val"
+            android:text="@string/mass_val"
             app:layout_constraintEnd_toEndOf="@+id/imageMass"
             app:layout_constraintStart_toStartOf="@+id/imageMass"
             app:layout_constraintTop_toTopOf="@+id/imageMass" />
@@ -91,7 +91,7 @@
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textMass"
             style="@style/horizontal_param_text"
-            android:text="@string/weight_name"
+            android:text="@string/mass_name"
             app:layout_constraintBottom_toBottomOf="@+id/imageMass"
             app:layout_constraintEnd_toEndOf="@+id/imageMass"
             app:layout_constraintStart_toStartOf="@+id/imageMass"
