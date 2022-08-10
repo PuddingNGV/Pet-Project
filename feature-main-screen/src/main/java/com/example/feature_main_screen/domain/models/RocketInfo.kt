@@ -1,11 +1,12 @@
 package com.example.feature_main_screen.domain.models
 
-class RocketInfo(
+
+data class RocketInfo(
     val rocketName: String,
-    val height: Double,
-    val diameter: Double,
-    val mass: Int,
-    val payload: Int,
+    val height: Height,
+    val diameter: Diameter,
+    val mass: Mass,
+    val payload: Payload,
     val imageUlrList: List<String>,
     val firstFlight: String,
     val country: String,
@@ -13,3 +14,4 @@ class RocketInfo(
     val stageCount: Int,
     val stageInfo: List<StageInfo>
 )
+
