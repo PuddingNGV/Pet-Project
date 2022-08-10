@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import com.example.feature_settings_screen.presentation.*
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -28,21 +29,57 @@ class StartMainScreen : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainScreenBinding
     private lateinit var bindingStage: StageInfoLayoutBinding
+    private lateinit var rocketData: RocketInfo
 
     private lateinit var preferencesSettings: SharedPreferences
 
     private val preferencesListenerSettings = SharedPreferences.OnSharedPreferenceChangeListener { _, key ->
         if (key == KEY_HEIGHT_PARAM) {
-            binding.bottomSheetInclude.includedHorizontal.textHeight.text = getString(R.string.height_name, (changeParamUnitOfLength(preferencesSettings.getBoolean(key, true))))
+            binding.bottomSheetInclude.includedHorizontal.textHeight.text =
+                getString(R.string.height_name, (changeParamUnitOfLength(preferencesSettings.getBoolean(key, true))))
+            if (preferencesSettings.getBoolean(KEY_HEIGHT_PARAM, true)) {
+                binding.bottomSheetInclude.includedHorizontal.textHeightVal.text =
+                    rocketData.height.meters.toString()
+            } else {
+                binding.bottomSheetInclude.includedHorizontal.textHeightVal.text =
+                    rocketData.height.feet.toString()
+            }
         }
         if (key == KEY_DIAMETER_PARAM) {
-            binding.bottomSheetInclude.includedHorizontal.textDiameter.text = getString(R.string.diameter_name, (changeParamUnitOfLength(preferencesSettings.getBoolean(key, true))))
+            binding.bottomSheetInclude.includedHorizontal.textDiameter.text =
+                getString(R.string.diameter_name, (changeParamUnitOfLength(preferencesSettings.getBoolean(key, true))))
+
+            if (preferencesSettings.getBoolean(KEY_DIAMETER_PARAM, true)) {
+                binding.bottomSheetInclude.includedHorizontal.textDiameterVal.text =
+                    rocketData.diameter.meters.toString()
+            } else {
+                binding.bottomSheetInclude.includedHorizontal.textDiameterVal.text =
+                    rocketData.diameter.feet.toString()
+            }
         }
         if (key == KEY_MASS_PARAM) {
-            binding.bottomSheetInclude.includedHorizontal.textMass.text = getString(R.string.mass_name, (changeParamUnitOfMass(preferencesSettings.getBoolean(key, true))))
+            binding.bottomSheetInclude.includedHorizontal.textMass.text =
+                getString(R.string.mass_name, (changeParamUnitOfMass(preferencesSettings.getBoolean(key, true))))
+
+            if (preferencesSettings.getBoolean(KEY_MASS_PARAM, true)) {
+                binding.bottomSheetInclude.includedHorizontal.textMassVal.text =
+                    rocketData.mass.kg.toString()
+            } else {
+                binding.bottomSheetInclude.includedHorizontal.textMassVal.text =
+                    rocketData.mass.lb.toString()
+            }
         }
         if (key == KEY_PAYLOAD_PARAM) {
-            binding.bottomSheetInclude.includedHorizontal.textPayload.text = getString(R.string.payload_name, (changeParamUnitOfMass(preferencesSettings.getBoolean(key, true))))
+            binding.bottomSheetInclude.includedHorizontal.textPayload.text =
+                getString(R.string.payload_name, (changeParamUnitOfMass(preferencesSettings.getBoolean(key, true))))
+
+            if (preferencesSettings.getBoolean(KEY_PAYLOAD_PARAM, true)) {
+                binding.bottomSheetInclude.includedHorizontal.textPayloadVal.text =
+                    rocketData.payload.kg.toString()
+            } else {
+                binding.bottomSheetInclude.includedHorizontal.textPayloadVal.text =
+                    rocketData.payload.lb.toString()
+            }
         }
 
     }
@@ -78,43 +115,93 @@ class StartMainScreen : AppCompatActivity() {
             dialog.show(supportFragmentManager, "settingsDialog")
         }
 
-        vmSettings.settingsLiveData.observe(this@StartMainScreen) { it ->
-            when (it.heightParam) {
-                true -> binding.bottomSheetInclude.includedHorizontal.textHeight.text = getString(R.string.height_name, (getString(R.string.m)))
-                false -> binding.bottomSheetInclude.includedHorizontal.textHeight.text = getString(R.string.height_name, (getString(R.string.ft)))
-            }
-            when (it.diameterParam) {
-                true -> binding.bottomSheetInclude.includedHorizontal.textDiameter.text = getString(R.string.diameter_name, (getString(R.string.m)))
-                false -> binding.bottomSheetInclude.includedHorizontal.textDiameter.text = getString(R.string.diameter_name, (getString(R.string.ft)))
-            }
-            when (it.massParam) {
-                true -> binding.bottomSheetInclude.includedHorizontal.textMass.text = getString(R.string.mass_name, (getString(R.string.kg)))
-                false -> binding.bottomSheetInclude.includedHorizontal.textMass.text = getString(R.string.mass_name, (getString(R.string.lb)))
-            }
-            when (it.payloadParam) {
-                true -> binding.bottomSheetInclude.includedHorizontal.textPayload.text = getString(R.string.payload_name, (getString(R.string.kg)))
-                false -> binding.bottomSheetInclude.includedHorizontal.textPayload.text = getString(R.string.payload_name, (getString(R.string.lb)))
-            }
-        }
+        vm.rocket.observe(this@StartMainScreen) { rocket ->
 
-        vm.rocket.observe(this@StartMainScreen) { it ->
-            if (!it.data.isNullOrEmpty()) {
-                val dataRocket = it.data[3]
+            if (!rocket.data.isNullOrEmpty()) {
+                rocketData = rocket.data[3]
 
-                imageViewer(dataRocket.imageUlrList)
-                binding.bottomSheetInclude.textRocketName.text = dataRocket.rocketName
-                binding.bottomSheetInclude.includedHorizontal.textHeightVal.text = dataRocket.height.toString()
+                vmSettings.settingsLiveData.observe(this@StartMainScreen) { settings ->
+                    when (settings.heightParam) {
+                        true -> {
+                            binding.bottomSheetInclude.includedHorizontal.textHeight.text =
+                                getString(R.string.height_name, (getString(R.string.m)))
+
+                            binding.bottomSheetInclude.includedHorizontal.textHeightVal.text =
+                                rocketData.height.meters.toString()
+                        }
+                        false -> {
+                            binding.bottomSheetInclude.includedHorizontal.textHeight.text =
+                                getString(R.string.height_name, (getString(R.string.ft)))
+
+                            binding.bottomSheetInclude.includedHorizontal.textHeightVal.text =
+                                rocketData.height.feet.toString()
+                        }
+                    }
+                    when (settings.diameterParam) {
+                        true -> {
+                            binding.bottomSheetInclude.includedHorizontal.textDiameter.text =
+                                getString(R.string.diameter_name, (getString(R.string.m)))
+
+                            binding.bottomSheetInclude.includedHorizontal.textDiameterVal.text =
+                                rocketData.diameter.meters.toString()
+                        }
+                        false -> {
+                            binding.bottomSheetInclude.includedHorizontal.textDiameter.text =
+                                getString(R.string.diameter_name, (getString(R.string.ft)))
+
+                            binding.bottomSheetInclude.includedHorizontal.textDiameterVal.text =
+                                rocketData.diameter.feet.toString()
+                        }
+                    }
+                    when (settings.massParam) {
+                        true -> {
+                            binding.bottomSheetInclude.includedHorizontal.textMass.text =
+                                getString(R.string.mass_name, (getString(R.string.kg)))
+
+                            binding.bottomSheetInclude.includedHorizontal.textMassVal.text =
+                                rocketData.mass.kg.toString()
+                        }
+                        false -> {
+                            binding.bottomSheetInclude.includedHorizontal.textMass.text =
+                                getString(R.string.mass_name, (getString(R.string.lb)))
+
+                            binding.bottomSheetInclude.includedHorizontal.textMassVal.text =
+                                rocketData.mass.lb.toString()
+                        }
+                    }
+                    when (settings.payloadParam) {
+                        true -> {
+                            binding.bottomSheetInclude.includedHorizontal.textPayload.text =
+                                getString(R.string.payload_name, (getString(R.string.kg)))
+
+                            binding.bottomSheetInclude.includedHorizontal.textPayloadVal.text =
+                                rocketData.payload.kg.toString()
+                        }
+                        false -> {
+                            binding.bottomSheetInclude.includedHorizontal.textPayload.text =
+                                getString(R.string.payload_name, (getString(R.string.lb)))
+
+                            binding.bottomSheetInclude.includedHorizontal.textPayloadVal.text =
+                                rocketData.payload.lb.toString()
+                        }
+                    }
+                }
+
+                imageViewer(rocketData.imageUlrList)
+                binding.bottomSheetInclude.textRocketName.text = rocketData.rocketName
+                /*binding.bottomSheetInclude.includedHorizontal.textHeightVal.text = dataRocket.height.toString()
                 binding.bottomSheetInclude.includedHorizontal.textDiameterVal.text =
                     dataRocket.diameter.toString()
                 binding.bottomSheetInclude.includedHorizontal.textMassVal.text = dataRocket.mass.toString()
                 binding.bottomSheetInclude.includedHorizontal.textPayloadVal.text =
                     dataRocket.payload.toString()
-                binding.bottomSheetInclude.textFirstFlightVal.text = dataRocket.firstFlight
-                binding.bottomSheetInclude.textCountryVal.text = dataRocket.country
+                 */
+                binding.bottomSheetInclude.textFirstFlightVal.text = rocketData.firstFlight
+                binding.bottomSheetInclude.textCountryVal.text = rocketData.country
                 binding.bottomSheetInclude.textCostPerLaunchVal.text =
-                    getString(R.string.cost_per_launch_val, ((dataRocket.costPerLaunch) / 1000000))
+                    getString(R.string.cost_per_launch_val, ((rocketData.costPerLaunch) / 1000000))
                 binding.bottomSheetInclude.linearLayoutStageInfo.removeAllViews()
-                addStageInfoField(dataRocket)
+                addStageInfoField(rocketData)
             }
         }
 
