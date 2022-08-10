@@ -9,6 +9,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
 class DataProcessing {
+
     fun toLocalListRocketDbEntity(rocketResponseList: List<RocketResponseItem>): List<RocketDbEntity> {
         val mEntityList = mutableListOf<RocketDbEntity>()
         for (i in rocketResponseList.indices){
@@ -16,17 +17,18 @@ class DataProcessing {
         }
         return java.util.List.copyOf(mEntityList)
     }
+
     fun toRocketInfo(listFlow: Flow<List<RocketDbEntity>>): Flow<List<RocketInfo>> {
         val rocketInfoList: Flow<List<RocketInfo>> = listFlow.map { list ->
             list.map { value ->
-                value.toRocketInfo(true,true,true,true)
+                value.toRocketInfo()
             }
         }
         return rocketInfoList
     }
     private fun toRocketInfoDeprecated(rocketDbEntity: List<RocketDbEntity>): List<RocketInfo> {
         val mEntityList = mutableListOf<RocketInfo>()
-        rocketDbEntity.forEach{ value -> mEntityList.add(value.toRocketInfo(true,true,true,true))}
+        rocketDbEntity.forEach{ value -> mEntityList.add(value.toRocketInfo())}
         return java.util.List.copyOf(mEntityList)
     }
     fun rocketProcessing(
@@ -41,22 +43,10 @@ class DataProcessing {
 
         val dataRocket = RocketInfo(
             request.name,
-            when (heightParams) {
-                true -> request.height.meters
-                else -> request.height.feet
-            },
-            when (diameterParams) {
-                true -> request.diameter.meters
-                else -> request.diameter.feet
-            },
-            when (massParams) {
-                true -> request.mass.kg
-                else -> request.mass.lb
-            },
-            when (payloadParams) {
-                true -> request.payloadWeights[0].kg
-                else -> request.payloadWeights[0].lb
-            },
+            request.height.toModelsHeight(),
+            request.diameter.toModelsDiameter(),
+            request.mass.toModelsMass(),
+            request.payloadWeights[0].toModelsPayload(),
             request.flickrImages,
             request.firstFlight,
             request.country,
