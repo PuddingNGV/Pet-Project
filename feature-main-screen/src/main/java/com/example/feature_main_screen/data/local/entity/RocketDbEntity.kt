@@ -37,24 +37,12 @@ data class RocketDbEntity(
     val flickrImage: List<String>
     ) {
 
-    fun toRocketInfo(heightType:Boolean, diameterType:Boolean, massType:Boolean, payloadType:Boolean):RocketInfo = RocketInfo(
+    fun toRocketInfo():RocketInfo = RocketInfo(
         rocketName = name,
-        height = when (heightType) {
-            true -> height.meters
-            false -> height.feet
-        },
-        diameter = when (diameterType) {
-            true -> diameter.meters
-            false -> diameter.feet
-        },
-        mass = when (massType) {
-            true -> mass.kg
-            false -> mass.lb
-        },
-        payload = when (payloadType) {
-            true -> payloadWeights[0].kg
-            false -> payloadWeights[0].lb
-        },
+        height = height.toModelsHeight(),
+        diameter = diameter.toModelsDiameter(),
+        mass = mass.toModelsMass(),
+        payload = payloadWeights[0].toModelsPayload(),
         imageUlrList = flickrImage,
         firstFlight = firstFlight,
         country = country,
